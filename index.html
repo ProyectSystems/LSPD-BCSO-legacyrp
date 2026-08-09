@@ -1,0 +1,2597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa LSPD | BCSO</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #3b82f6;
+            --accent-bcso: #eab308;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --hover-bg: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Controls */
+        #sidebar {
+            width: 320px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-color);
+        }
+
+        .nav-list {
+            list-style: none;
+            overflow-y: auto;
+            flex-grow: 1;
+            padding-right: 5px;
+        }
+
+        .nav-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .nav-list::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .nav-item {
+            margin-bottom: 5px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--hover-bg);
+            color: var(--text-color);
+        }
+
+        .nav-link.active {
+            border-left: 3px solid var(--accent-color);
+            font-weight: bold;
+        }
+
+        /* Content Area */
+        #content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+        }
+
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        h1, h2, h3 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            margin-top: 30px;
+            line-height: 1.3;
+        }
+
+        h1 {
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            white-space: pre-line;
+        }
+
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 5px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Tables styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9rem;
+            background-color: var(--bg-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #0f172a;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            background-color: var(--bg-color);
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #cbd5e1;
+        }
+
+        /* Index Table Styles */
+        .index-table {
+            margin-bottom: 30px;
+        }
+        .index-table td {
+            padding: 8px 12px;
+        }
+        .index-table a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .index-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            #sidebar {
+                width: 100%;
+                height: 200px;
+            }
+            #content {
+                padding: 20px;
+            }
+            .content-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <aside id="sidebar">
+        <div class="brand-title">
+            <span>🛡️</span> LSPD | BCSO
+        </div>
+        <input type="text" id="searchInput" class="search-box" placeholder="Buscar en la normativa..." onkeyup="filterNav()">
+        <ul class="nav-list" id="navList">
+            <li class="nav-item"><a href="#index-sec" class="nav-link">ÍNDICE GENERAL</a></li>
+            <li class="nav-item"><a href="#cap-1" class="nav-link">I. DISPOSICIONES GENERALES</a></li>
+            <li class="nav-item"><a href="#cap-2" class="nav-link">II. ORGANIZACIÓN DE LOS CUERPOS</a></li>
+            <li class="nav-item"><a href="#cap-3" class="nav-link">III. ACTUACIÓN POLICIAL</a></li>
+            <li class="nav-item"><a href="#cap-4" class="nav-link">IV. USO DE LA FUERZA</a></li>
+            <li class="nav-item"><a href="#cap-5" class="nav-link">V. ACTUACIONES DE TRÁFICO</a></li>
+            <li class="nav-item"><a href="#cap-6" class="nav-link">VI. ACTOS ILÍCITOS Y SITUACIONES DE RIESGO</a></li>
+            <li class="nav-item"><a href="#cap-7" class="nav-link">VII. INVESTIGACIONES</a></li>
+            <li class="nav-item"><a href="#cap-8" class="nav-link">VIII. ARMAMENTO, EQUIPAMIENTO Y VEHÍCULOS</a></li>
+            <li class="nav-item"><a href="#cap-9" class="nav-link">IX. SERVICIO Y CONDUCTA INTERNA</a></li>
+            <li class="nav-item"><a href="#cap-10" class="nav-link">X. CORRUPCIÓN POLICIAL</a></li>
+            <li class="nav-item"><a href="#cap-11" class="nav-link">XI. RÉGIMEN DISCIPLINARIO</a></li>
+            <li class="nav-item"><a href="#cap-12" class="nav-link">XII. DISPOSICIONES FINALES</a></li>
+            <li class="nav-item"><a href="#anexo-1" class="nav-link">EXTRA: ANEXO 1</a></li>
+        </ul>
+    </aside>
+
+    <main id="content">
+        <div class="content-container">
+            
+            <h1 id="index-sec">ÍNDICE GENERAL DE LA NORMATIVA</h1>
+            <table class="index-table">
+                <thead>
+                    <tr>
+                        <th>Sección</th>
+                        <th>Página / Art.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><a href="#cap-1">I. DISPOSICIONES GENERALES.</a></td><td>6</td></tr>
+                    <tr><td><a href="#art-2">2. Ámbito de aplicación.</a></td><td>6</td></tr>
+                    <tr><td><a href="#art-3">3. Principios de actuación.</a></td><td>7</td></tr>
+                    <tr><td><a href="#art-4">4. Profesionalidad y conducta.</a></td><td>7</td></tr>
+                    <tr><td><a href="#art-5">5. Jerarquía y cadena de mando.</a></td><td>8</td></tr>
+                    <tr><td><a href="#art-6">6. Obligación de servicio.</a></td><td>8</td></tr>
+                    <tr><td><a href="#art-7">7. Entrada y salida de servicio.</a></td><td>9</td></tr>
+                    <tr><td><a href="#art-8">8. Conflictos de interés.</a></td><td>10</td></tr>
+                    <tr><td><a href="#art-9">9. Régimen de incompatibilidades.</a></td><td>10</td></tr>
+                    <tr><td><a href="#cap-2">II. ORGANIZACIÓN DE LOS CUERPOS.</a></td><td>11</td></tr>
+                    <tr><td><a href="#art-10">10. Los Santos Police Department (LSPD).</a></td><td>11</td></tr>
+                    <tr><td><a href="#art-11">11. Blaine County Sheriff’s Office (BCSO).</a></td><td>12</td></tr>
+                    <tr><td><a href="#art-12">12. Jurisdicciones.</a></td><td>12</td></tr>
+                    <tr><td><a href="#art-13">13. Actuación fuera de jurisdicción.</a></td><td>13</td></tr>
+                    <tr><td><a href="#art-14">14. Operativos conjuntos.</a></td><td>13</td></tr>
+                    <tr><td><a href="#art-15">15. Mando en actuaciones conjuntas.</a></td><td>14</td></tr>
+                    <tr><td><a href="#art-16">16. Unidades especializadas.</a></td><td>15</td></tr>
+                    <tr><td><a href="#art-17">17. Competencias exclusivas.</a></td><td>15</td></tr>
+                    <tr><td><a href="#cap-3">III. ACTUACIÓN POLICIAL.</a></td><td>17</td></tr>
+                    <tr><td><a href="#art-18">18. Identificación de ciudadanos.</a></td><td>17</td></tr>
+                    <tr><td><a href="#art-19">19. Cacheos.</a></td><td>17</td></tr>
+                    <tr><td><a href="#art-20">20. Registros personales.</a></td><td>18</td></tr>
+                    <tr><td><a href="#art-21">21. Registro de vehículos.</a></td><td>18</td></tr>
+                    <tr><td><a href="#art-22">22. Registro de propiedades.</a></td><td>19</td></tr>
+                    <tr><td><a href="#art-23">23. Detenciones.</a></td><td>20</td></tr>
+                    <tr><td><a href="#art-24">24. Lectura de derechos.</a></td><td>20</td></tr>
+                    <tr><td><a href="#art-25">25. Uso de esposas.</a></td><td>21</td></tr>
+                    <tr><td><a href="#art-26">26. Traslado de detenidos.</a></td><td>22</td></tr>
+                    <tr><td><a href="#art-27">27. Interrogatorios.</a></td><td>22</td></tr>
+                    <tr><td><a href="#art-28">28. Solicitud de abogado.</a></td><td>23</td></tr>
+                    <tr><td><a href="#art-29">29. Puesta a disposición judicial.</a></td><td>23</td></tr>
+                    <tr><td><a href="#cap-4">IV. USO DE LA FUERZA.</a></td><td>24</td></tr>
+                    <tr><td><a href="#art-30">30. Principio de proporcionalidad.</a></td><td>24</td></tr>
+                    <tr><td><a href="#art-31">31. Escala del uso de la fuerza.</a></td><td>24</td></tr>
+                    <tr><td><a href="#art-32">32. Fuerza física.</a></td><td>24</td></tr>
+                    <tr><td><a href="#art-33">33. Táser.</a></td><td>25</td></tr>
+                    <tr><td><a href="#art-34">34. Armas no letales.</a></td><td>25</td></tr>
+                    <tr><td><a href="#art-35">35. Armas de fuego.</a></td><td>26</td></tr>
+                    <tr><td><a href="#art-37">37. Disparos desde vehículos.</a></td><td>27</td></tr>
+                    <tr><td><a href="#art-38">38. Atención médica tras el uso de la fuerza.</a></td><td>27</td></tr>
+                    <tr><td><a href="#cap-5">V. ACTUACIONES DE TRÁFICO.</a></td><td>28</td></tr>
+                    <tr><td><a href="#art-39">39. Controles de tráfico.</a></td><td>28</td></tr>
+                    <tr><td><a href="#art-40">40. Identificación del conductor.</a></td><td>28</td></tr>
+                    <tr><td><a href="#art-41">41. Multas y sanciones.</a></td><td>29</td></tr>
+                    <tr><td><a href="#art-42">42. Retirada de vehículos.</a></td><td>29</td></tr>
+                    <tr><td><a href="#art-43">43. Persecuciones.</a></td><td>29</td></tr>
+                    <tr><td><a href="#art-44">44. Maniobra PIT y pinchar ruedas.</a></td><td>30</td></tr>
+                    <tr><td><a href="#art-45">45. Pinchos.</a></td><td>31</td></tr>
+                    <tr><td><a href="#art-46">46. Bloqueos.</a></td><td>31</td></tr>
+                    <tr><td><a href="#art-47">47. Helicópteros.</a></td><td>32</td></tr>
+                    <tr><td><a href="#cap-6">VI. ACTOS ILÍCITOS Y SITUACIONES DE RIESGO.</a></td><td>33</td></tr>
+                    <tr><td><a href="#art-48">48. Repuesta a atracos.</a></td><td>33</td></tr>
+                    <tr><td><a href="#art-49">49. Negociaciones con rehenes.</a></td><td>34</td></tr>
+                    <tr><td><a href="#art-50">50. Secuestros.</a></td><td>35</td></tr>
+                    <tr><td><a href="#art-51">51. Puntos calientes.</a></td><td>35</td></tr>
+                    <tr><td><a href="#art-52">52. Conflictos entre organizaciones.</a></td><td>36</td></tr>
+                    <tr><td><a href="#art-53">53. Grandes golpes.</a></td><td>37</td></tr>
+                    <tr><td><a href="#art-54">54. Tiradores activos.</a></td><td>38</td></tr>
+                    <tr><td><a href="#art-55">55. Situaciones de crisis.</a></td><td>39</td></tr>
+                    <tr><td><a href="#cap-7">VII. INVESTIGACIONES.</a></td><td>39</td></tr>
+                    <tr><td><a href="#art-56">56. Inicio de una investigación.</a></td><td>39</td></tr>
+                    <tr><td><a href="#art-57">57. Expedientes policiales.</a></td><td>40</td></tr>
+                    <tr><td><a href="#art-58">58. Vigilancias.</a></td><td>41</td></tr>
+                    <tr><td><a href="#art-59">59. Seguimientos.</a></td><td>41</td></tr>
+                    <tr><td><a href="#art-61">61. Agentes encubiertos.</a></td><td>42</td></tr>
+                    <tr><td><a href="#art-62">62. Intervenciones de comunicaciones.</a></td><td>43</td></tr>
+                    <tr><td><a href="#art-63">63. Pruebas.</a></td><td>43</td></tr>
+                    <tr><td><a href="#art-64">64. Cadena de custodia.</a></td><td>44</td></tr>
+                    <tr><td><a href="#art-65">65. Órdenes judiciales.</a></td><td>44</td></tr>
+                    <tr><td><a href="#art-66">66. Registros y redadas.</a></td><td>45</td></tr>
+                    <tr><td><a href="#art-67">67. Desmantelación de organizaciones.</a></td><td>46</td></tr>
+                    <tr><td><a href="#cap-8">VIII. ARMAMENTO, EQUIPAMIENTO Y VEHÍCULOS.</a></td><td>46</td></tr>
+                    <tr><td><a href="#art-68">68. Equipamiento reglamentario.</a></td><td>46</td></tr>
+                    <tr><td><a href="#art-70">70. Armas largas.</a></td><td>47</td></tr>
+                    <tr><td><a href="#art-71">71. Material especializado.</a></td><td>48</td></tr>
+                    <tr><td><a href="#art-72">72. Vehículos oficiales.</a></td><td>48</td></tr>
+                    <tr><td><a href="#art-73">73. Vehículos no identificados.</a></td><td>49</td></tr>
+                    <tr><td><a href="#art-74">74. Uso del helicóptero.</a></td><td>50</td></tr>
+                    <tr><td><a href="#art-75">75. Pérdida o robo de material policial.</a></td><td>50</td></tr>
+                    <tr><td><a href="#cap-9">IX. SERVICIO Y CONDUCTA INTERNA.</a></td><td>51</td></tr>
+                    <tr><td><a href="#art-76">76. Uniformidad.</a></td><td>51</td></tr>
+                    <tr><td><a href="#art-77">77. Comunicaciones por radio.</a></td><td>52</td></tr>
+                    <tr><td><a href="#art-78">78. Patrullaje.</a></td><td>52</td></tr>
+                    <tr><td><a href="#art-79">79. Patrullaje en solitario.</a></td><td>53</td></tr>
+                    <tr><td><a href="#art-80">80. Compañeros de patrulla.</a></td><td>54</td></tr>
+                    <tr><td><a href="#art-81">81. Uso de instalaciones.</a></td><td>54</td></tr>
+                    <tr><td><a href="#art-82">82. Uso de bases de datos.</a></td><td>55</td></tr>
+                    <tr><td><a href="#art-83">83. Información confidencial.</a></td><td>55</td></tr>
+                    <tr><td><a href="#art-85">85. Relaciones con organizaciones ilícitas.</a></td><td>56</td></tr>
+                    <tr><td><a href="#cap-10">X. CORRUPCIÓN POLICIAL.</a></td><td>57</td></tr>
+                    <tr><td><a href="#art-86">86. Definición de agente corrupto.</a></td><td>57</td></tr>
+                    <tr><td><a href="#art-87">87. Solicitud y autorización.</a></td><td>58</td></tr>
+                    <tr><td><a href="#art-88">88. Requisitos para acceder al rol.</a></td><td>58</td></tr>
+                    <tr><td><a href="#art-89">89. Desarrollo progresivo de la corrupción.</a></td><td>59</td></tr>
+                    <tr><td><a href="#art-90">90. Niveles de corrupción.</a></td><td>60</td></tr>
+                    <tr><td><a href="#art-91">91. Actos de corrupción permitidos.</a></td><td>61</td></tr>
+                    <tr><td><a href="#art-92">92. Actos de corrupción restringidos.</a></td><td>61</td></tr>
+                    <tr><td><a href="#art-93">93. Actos de corrupción prohibidos.</a></td><td>62</td></tr>
+                    <tr><td><a href="#art-94">94. Sobornos y beneficios económicos.</a></td><td>62</td></tr>
+                    <tr><td><a href="#art-95">95. Filtración de información.</a></td><td>63</td></tr>
+                    <tr><td><a href="#art-96">96. Manipulación de pruebas.</a></td><td>63</td></tr>
+                    <tr><td><a href="#art-97">97. Liberación o favorecimiento de detenidos.</a></td><td>64</td></tr>
+                    <tr><td><a href="#art-98">98. Relaciones con organizaciones ilícitas.</a></td><td>64</td></tr>
+                    <tr><td><a href="#art-99">99. Venta o entrega de material policial.</a></td><td>65</td></tr>
+                    <tr><td><a href="#art-100">100. Uso indebido de bases de datos.</a></td><td>65</td></tr>
+                    <tr><td><a href="#art-101">101. Corrupción durante investigaciones.</a></td><td>66</td></tr>
+                    <tr><td><a href="#art-102">102. Límites de actuación.</a></td><td>66</td></tr>
+                    <tr><td><a href="#art-103">103. Investigación interna.</a></td><td>67</td></tr>
+                    <tr><td><a href="#art-104">104. Descubrimiento del agente corrupto.</a></td><td>67</td></tr>
+                    <tr><td><a href="#art-105">105. Consecuencias IC.</a></td><td>68</td></tr>
+                    <tr><td><a href="#art-106">106. CK por corrupción.</a></td><td>68</td></tr>
+                    <tr><td><a href="#cap-11">XI. RÉGIMEN DISCIPLINARIO.</a></td><td>69</td></tr>
+                    <tr><td><a href="#art-107">107. Faltas leves.</a></td><td>69</td></tr>
+                    <tr><td><a href="#art-108">108. Faltas graves.</a></td><td>70</td></tr>
+                    <tr><td><a href="#art-109">109. Faltas muy graves.</a></td><td>71</td></tr>
+                    <tr><td><a href="#art-110">110. Advertencias.</a></td><td>72</td></tr>
+                    <tr><td><a href="#art-111">111. Suspensión de empleo.</a></td><td>72</td></tr>
+                    <tr><td><a href="#art-112">112. Descenso de rango.</a></td><td>73</td></tr>
+                    <tr><td><a href="#art-113">113. Expulsión del cuerpo.</a></td><td>74 / 75</td></tr>
+                    <tr><td><a href="#art-114">114. Responsabilidad del mando.</a></td><td>76</td></tr>
+                    <tr><td><a href="#cap-12">XII. DISPOSICIONES FINALES.</a></td><td>77</td></tr>
+                    <tr><td><a href="#art-115">115. Interpretación.</a></td><td>77</td></tr>
+                    <tr><td><a href="#art-116">116. Interpretación.</a></td><td>77</td></tr>
+                    <tr><td><a href="#art-117">117. Aceptación.</a></td><td>78</td></tr>
+                    <tr><td><a href="#anexo-1">- EXTRA: ANEXO 1.</a></td><td>79</td></tr>
+                    <tr><td><a href="#art-118">118. Rangos LSPD.</a></td><td>79</td></tr>
+                    <tr><td><a href="#art-119">119. Rangos BCSO.</a></td><td>80</td></tr>
+                    <tr><td><a href="#art-120">120. Códigos de radio.</a></td><td>80</td></tr>
+                    <tr><td><a href="#art-121">121. Vehículos.</a></td><td>81</td></tr>
+                </tbody>
+            </table>
+
+            <h2 id="cap-1">I. DISPOSICIONES GENERALES.</h2>
+            
+            <h3 id="art-1">1. Objetivo del reglamento.</h3>
+            <p>El presente reglamento establece las normas de funcionamiento, actuación y organización de Los Santos Police Department (LSPD) y la Blaine County Sheriff’s Office (BCSO).
+
+Su finalidad es garantizar una actuación policial seria, proporcional y coherente, protegiendo el desarrollo del rol y los derechos de los ciudadanos.
+
+Todos los miembros deberán cumplir esta normativa, la Normativa general, la legislación IC vigente y los protocolos internos de su cuerpo.
+
+En caso de contradicción, prevalecerá la normativa general del servidor sobre cualquier protocolo interno.</p>
+
+            <h3 id="art-2">2. Ámbito de aplicación.</h3>
+            <p>Esta normativa será de obligado cumplimiento para:
+
+Miembros de la LSPD.
+Miembros de la BCSO.
+Agentes en formación.
+Mandos y jefaturas.
+Miembros de unidades especializadas.
+Agentes fuera de servicio cuando utilicen su condición policial.
+
+Todo agente estará sujeto a la normativa desde el momento en que entre en servicio hasta que lo abandone correctamente.
+
+El desconocimiento de los protocolos o de la normativa no eximirá de responsabilidad.</p>
+
+            <h3 id="art-3">3. Principios de actuación.</h3>
+            <p>Todo miembro de la LSPD y del BCSO deberá actuar conforme a los siguientes principios:
+
+Legalidad.
+Proporcionalidad.
+Necesidad.
+Profesionalidad.
+Neutralidad.
+Respeto al Valor de la Vida.
+Protección de civiles.
+Responsabilidad por sus actuaciones.
+
+La fuerza deberá utilizarse únicamente cuando resulte necesaria y en el nivel mínimo suficiente para controlar la situación.
+
+El objetivo de una actuación policial será resolver la situación mediante rol, no obtener una victoria sobre la parte contraria.
+
+Los agentes deberán priorizar la protección de civiles, rehenes y personas vulnerables.</p>
+
+            <h3 id="art-4">4. Profesionalidad y conducta.</h3>
+            <p>Todo agente deberá mantener una conducta profesional durante el servicio.
+
+Queda prohibido:
+
+Abusar de la autoridad.
+Provocar deliberadamente a ciudadanos.
+Utilizar insultos de forma injustificada.
+Humillar a detenidos.
+Aplicar sanciones por motivos personales.
+Utilizar recursos policiales para beneficio propio.
+Interferir en roles ajenos sin causa policial.
+
+Los agentes podrán adaptar su personalidad al personaje, pero nunca utilizarla con justificación para incumplir la normativa. Las discusiones OOC entre agentes o con ciudadanos deberán resolverse fuera del rol.</p>
+
+            <h3 id="art-5">5. Jerarquía y cadena de mando.</h3>
+            <p>Todos los miembros deberán respetar la jerarquía de su cuerpo.
+
+Durante una actuación, el mando corresponderá al agente de mayor rango presente, salvo que se haya designado expresamente un responsable del operativo.
+
+Las órdenes deberán cumplirse siempre que sean legales, coherentes y no contradigan la normativa del servidor.
+
+Un agente podrá negarse a cumplir una orden manifiestamente ilegal o contraria a la normativa, debiendo informar posteriormente a un superior o a Asuntos Internos.
+
+Una vez asignado un mando operativo, ningún agente de rango superior deberá sustituirlo durante la actuación salvo necesidad justificada.
+
+Los conflictos internos de mando nunca deberán discutirse públicamente durante una actuación.</p>
+
+            <h3 id="art-6">6. Obligación de servicio.</h3>
+            <p>Todo agente de servicio deberá responder a las llamadas y emergencias conforme a su prioridad.
+
+No estará permitido permanecer de servicio únicamente para:
+
+Utilizar vehículos policiales.
+Acceder al armamento.
+Consultar bases de datos.
+Obtener información.
+Permanecer inactivo durante periodos prolongados.
+
+Un agente que permanezca más de 15 minutos sin desarrollar actividad policial deberá salir de servicio, salvo que se encuentre:
+
+Elaborando informes.
+Realizando una investigación.
+Esperando instrucciones.
+Participando en una vigilancia.
+Cumpliendo otra función autorizada.
+
+Los agentes no podrán ignorar una emergencia prioritaria para continuar realizando controles o actuaciones de menor importancia.</p>
+
+            <h3 id="art-7">7. Entrada y salida de servicio.</h3>
+            <p>La entrada y salida de servicio deberá realizarse en las instalaciones habilitadas por cada cuerpo.
+
+Al entrar de servicio, el agente deberá:
+
+Utilizar el uniforme correspondiente.
+Portar únicamente el equipamiento autorizado.
+Mantener activa la radio policial.
+Identificarse correctamente en los sistemas internos.
+
+Al finalizar el servicio deberá:
+
+Depositar el armamento y material restringido.
+Guardar todos los vehículos oficiales.
+Finalizar o transferir las actuaciones pendientes.
+Abandonar las comunicaciones internas de servicio.
+
+Desde la salida de servicio deberán transcurrir al menos 30 minutos antes de participar voluntariamente en un rol agresivo o acto ilícito.
+
+Queda prohibido salir de servicio para intervenir inmediatamente como civil en una situación conocida durante el servicio.
+
+La información obtenida como agente no podrá utilizarse posteriormente fuera de servicio.</p>
+
+            <h3 id="art-8">8. Conflictos de interés.</h3>
+            <p>Un agente deberá apartarse de una actuación cuando exista una relación personal directa que pueda comprometer su imparcialidad.
+
+Se considerará conflicto de interés:
+
+Investigar a un familiar cercano.
+Investigar a una pareja.
+Intervenir en un conflicto personal propio.
+Participar en una investigación de la que pueda beneficiarse directamente.
+Actuar contra una persona con la que mantenga un conflicto personal grave.
+
+El agente deberá informar a un superior y transferir la actuación a otro miembro cuando sea posible.
+
+La amistad o enemistad IC no podrá utilizarse para favorecer, perseguir o perjudicar a un ciudadano.
+
+Los agentes autorizados para desarrollar una trama de corrupción se regirán además por el apartado específico de Corrupción Policial.</p>
+
+            <h3 id="art-9">9. Régimen de incompatibilidades.</h3>
+            <p>Ningún agente podrá pertenecer simultáneamente a una organización ilícita con el mismo personaje.
+
+Los agentes no podrán:
+
+Participar en actividades criminales sin autorización de trama.
+Trabajar para organizaciones ilícitas.
+Utilizar negocios legales para blanquear dinero.
+Vender información policial.
+Facilitar material del cuerpo.
+Utilizar su cargo para obtener beneficios personales.
+
+Los miembros de unidades de investigación deberán comunicar cualquier relación personal relevante con personas investigadas.
+
+Un agente podrá ser propietario o empleado de un negocio legal siempre que:
+
+No interfiera con su servicio.
+No utilice información policial para beneficiarlo.
+No emplee recursos del cuerpo.
+Respete la normativa de Locales.
+
+Las excepciones relacionadas con corrupción deberán estar previamente autorizadas y sujetas a su normativa específica.</p>
+
+            <h2 id="cap-2">II. ORGANIZACIÓN DE LOS CUERPOS.</h2>
+
+            <h3 id="art-10">10. Los Santos Police Department (LSPD).</h3>
+            <p>La LSPD será el cuerpo policial con jurisdicción principal en la ciudad de Los Santos.
+
+Sus funciones principales serán:
+
+Seguridad ciudadana.
+Patrullaje urbano.
+Control del tráfico.
+Respuesta a emergencias.
+Investigación de delitos.
+Intervenciones atracos y secuestros.
+Protección de eventos y autoridades.
+
+La LSPD tendrá competencia principal en todas las zonas urbanas y metropolitanas de Los Santos.
+
+Su identidad operativa deberá estar orientada principalmente al entorno urbano y a delitos cometidos dentro de la ciudad.</p>
+
+            <h3 id="art-11">11. Blaine County Sheriff’s Office (BCSO).</h3>
+            <p>El BCSO será el cuerpo policial con jurisdicción principal en Blaine County y las zonas rurales del estado (zona Norte).
+
+Sus funciones principales serán:
+
+Seguridad en el Norte.
+Patrullaje de carreteras y caminos.
+Control del tráfico interurbano.
+Investigaciones de delitos rurales.
+Búsquedas en zonas de difícil acceso.
+Intervención en puntos calientes.
+Apoyo en grandes operativos.
+
+El BCSO tendrá competencia principal en:
+
+Sandy Shores.
+Grapeseed.
+Paleto Bay.
+Zonas rurales.
+Áreas montañosas.
+Carreteras interurbanas dentro de su jurisdicción.
+
+Su identidad operativa deberá estar orientada principalmente al entorno rural, carreteras y zonas de difícil acceso.</p>
+
+            <h3 id="art-12">12. Jurisdicciones.</h3>
+            <p>La jurisdicción principal se dividirá de la siguiente manera:
+
+LSPD: Ciudad de Los Santos y área metropolitana.
+BCSO: Blaine County, Paleto Bay y rurales.
+
+La jurisdicción determinará qué cuerpo tendrá la responsabilidad principal de una actuación. La jurisdicción no impedirá que un cuerpo preste apoyo al otro cuando resulte necesario.
+
+Ningún agente podrá abandonar deliberadamente una emergencia alegando que se encuentra fuera de su jurisdicción cuando exista riesgo inmediato para una persona.
+
+En actuaciones ordinarias fuera de su jurisdicción, el cuerpo correspondiente deberá ser informado tan pronto como sea posible.</p>
+
+            <h3 id="art-13">13. Actuación fuera de jurisdicción.</h3>
+            <p>Un cuerpo podrá actuar fuera de su jurisdicción cuando:
+
+Una persecución atraviese el límite territorial.
+Exista una emergencia inmediata.
+El otro cuerpo solicite apoyo.
+No haya unidades disponibles en la zona.
+Se desarrolle una investigación conjunta.
+Exista un operativo previamente autorizado.
+
+Una persecución iniciada dentro de una jurisdicción podrá continuar sin interrupción en la otra.
+
+Cuando la actuación se prolongue más de 15 minutos fuera de la jurisdicción principal, deberá informarse al cuerpo competente cuando existan unidades disponibles.
+
+Queda prohibido patrullar de forma habitual fuera de la jurisdicción propia sin autorización o causa justificada.</p>
+
+            <h3 id="art-14">14. Operativos conjuntos.</h3>
+            <p>La LSPD y el BCSO podrán desarrollar operativos conjuntos en:
+
+Grandes golpes.
+Secuestros de alto riesgo.
+Redadas.
+Desmantelaciones.
+Búsqueda de fugitivos.
+Conflictos entre organizaciones.
+Eventos de gran magnitud.
+Situaciones de crisis.
+
+Antes del operativo deberán definirse:
+
+Mando principal.
+Objetivo.
+Número de unidades.
+Canales de radio.
+Funciones de cada cuerpo.
+Unidades especializadas participantes.
+
+Todos los participantes deberán respetar el plan establecido salvo que una situación imprevista obligue a modificarlo. 
+
+Ningún cuerpo podrá excluir injustificadamente al otro cuando su participación resulte necesaria para el desarrollo del operativo.</p>
+
+            <h3 id="art-15">15. Mando en actuaciones conjuntas.</h3>
+            <p>El mando principal corresponderá al cuerpo cuya jurisdicción abarque el lugar donde se inicia la actuación.
+
+En una persecución, mantendrá el mando el cuerpo que haya iniciado el seguimiento hasta que:
+
+Transfiera voluntariamente el control.
+Pierda todas sus unidades principales.
+El operativo requiera una especialidad concreta.
+
+En operativos planificados se designará un único Mando Operativo antes del inicio.
+
+El Mando Operativo tendrá autoridad sobre todas las unidades participantes exclusivamente durante dicha actuación.
+
+Las jefaturas de ambos cuerpos podrán sustituir al Mando Operativo únicamente por causa justificada.</p>
+
+            <h3 id="art-16">16. Unidades especializadas.</h3>
+            <p>Cada cuerpo podrá disponer de unidades especializadas según sus necesidades y estructura interna.
+
+Podrán existir, entre otras:
+
+Investigación.
+Tráfico.
+Unidad aérea.
+Unidad táctica.
+K-9.
+Negociación.
+Asuntos Internos.
+Formación.
+
+El acceso a una unidad especializada requerirá formación y autorización interna.
+
+Ningún agente podrá utilizar equipamiento, vehículos o facultades de una unidad a la que no pertenezca. Un agente podrá pertenecer a un máximo de 2 unidades especializadas de forma simultánea, salvo autorización de la jefatura.
+
+La pertenencia a una unidad especializada no otorgará autoridad jerárquica fuera de sus competencias.</p>
+
+            <h3 id="art-17">17. Competencias exclusivas.</h3>
+            <p>Determinadas actuaciones quedarán reservadas a personal autorizado.
+
+Investigación.
+Podrá:
+
+Gestionar investigaciones complejas.
+Coordinar vigilancias.
+Gestionar informantes.
+Solicitar órdenes judiciales.
+Preparar operaciones de desmantelación.
+
+Unidad táctica.
+Podrá intervenir en:
+
+Tiradores activos.
+Grandes golpes.
+Rehenes de alto riesgo.
+Entradas tácticas.
+Operaciones de especial peligrosidad.
+
+Unidad aérea.
+Tendrá competencia para:
+
+Seguimiento aéreo.
+Búsqueda de personas.
+Coordinación desde el aire.
+Apoyo en grandes operativos.
+
+Negociadores.
+Serán responsables de dirigir negociaciones complejas cuando se encuentren disponibles.
+
+Asuntos Internos.
+Tendrá competencia para:
+
+Investigar a miembros de ambos cuerpos.
+Revisar conductas irregulares.
+Investigar posibles casos de corrupción.
+Proponer medidas disciplinarias.
+
+La ausencia de una unidad especializada no impedirá una intervención urgente cuando exista un peligro inmediato.
+
+Ninguna competencia exclusiva podrá utilizarse para bloquear injustificadamente el desarrollo de una actuación o impedir el rol de otros agentes.</p>
+
+            <h2 id="cap-3">III. ACTUACIÓN POLICIAL.</h2>
+
+            <h3 id="art-18">18. Identificación de ciudadanos.</h3>
+            <p>Los agentes podrán solicitar la identificación de un ciudadano cuando exista:
+
+Sospecha razonable de participación de un delito.
+Comisión de una infracción.
+Coincidencia con la descripción de una persona buscada.
+Control policial autorizado.
+Necesidad de identificar a testigos o implicados en una actuación.
+
+No podrá exigirse la identificación de una persona sin motivo policial alguno.
+
+El agente deberá informar brevemente del motivo de la identificación cuando la situación lo permita.
+
+Negarse a identificarse cuando exista una causa legítima podrá dar lugar a una comprobación adicional o detención, conforme la legislación IC vigente.
+
+La mera presencia en una zona conflictiva no constituirá, por sí sola, motivo suficiente para una detención o registro.</p>
+
+            <h3 id="art-19">19. Cacheos.</h3>
+            <p>Se considera cacheo a la comprobación superficial destinada a localizar armas u objetos que puedan suponer un peligro inmediato.
+
+Podrá realizarse cuando:
+
+Exista sospecha razonable de que una persona está armada.
+Se produzca una detención.
+El ciudadano acceda a una zona policial restringida.
+Exista riesgo para los agentes o terceros.
+Se encuentre dentro de un operativo policial.
+
+Un cacheo preventivo no autorizará automáticamente la retirada de todos los objetos del inventario.
+
+El agente deberá interpretar el cache y comunicar su realización al ciudadano. Así como en la vida real, un agente varón no podrá cachear a una mujer excepto que la misma dé permiso explícito. Deberá llamarse a una agente mujer en caso de que la civil se niegue a ser cacheada por un varón.
+
+Queda prohibido cachear indiscriminadamente a todos los ciudadanos de una zona sin causa justificada.</p>
+
+            <h3 id="art-20">20. Registros personales.</h3>
+            <p>El registro personal permitirá comprobar la totalidad de los objetos que porta un ciudadano.
+
+Podrá realizarse cuando:
+
+La persona haya sido detenida.
+Existan indicios suficientes de posesión de objetos ilegales.
+Se haya localizado un objeto ilegal durante un cacheo.
+Exista autorización judicial cuando resulte necesaria.
+
+Todo objeto ilegal relacionado con la actuación podrá ser intervenido.
+
+Los objetos legales no relacionados con el delito deberán permanecer en posesión de su propietario. Queda prohibido reiterar objetos por conveniencia, beneficio personal o sin relación con la actuación.</p>
+
+            <h3 id="art-21">21. Registro de vehículos.</h3>
+            <p>Un vehículo podrá ser registrado cuando:
+
+Existan indicios visibles de actividad delictiva.
+Se detecten armas, drogas u objetos ilegales.
+Haya sido utilizado directamente en un delito.
+Su propietario o conductor autorice voluntariamente el registro.
+Exista una orden judicial.
+Se produzca una detención vinculada directamente al vehículo.
+
+Una infracción de tráfico menor no autorizará, por sí sola, el registro completo del vehículo.
+
+La huida de un control policial podrá constituir indicio suficiente cuando existan otros elementos relacionados con una actividad delictiva.
+
+Los agentes deberán documentar los objetivos ilegales relevantes encontrados durante el registro.
+
+El vehículo podrá ser inmovilizado o incautado cuando proceda conforme a la legislación vigente.</p>
+
+            <h3 id="art-22">22. Registro de propiedades.</h3>
+            <p>El registro de viviendas, negocios, almacenes o propiedades privadas requerirá una de estas tres opciones o varias:
+
+Consentimiento válido del propietario,
+Orden Judicial.
+Una situación de emergencia inmediata.
+
+Se considerará emergencia inmediata:
+
+Riesgo grave para una persona.
+Persecución directa de un sospechoso.
+Disparos desde el interior.
+Indicios claros de destrucción inmediata de pruebas de especial relevancia.
+
+La entrada de emergencia únicamente permitirá actuar sobre la causa que la justifica.
+
+Un registro completo posterior requerirá la autorización correspondiente.
+
+Todo registro planificado deberá quedar documentado mediante un informe policial.</p>
+
+            <h3 id="art-23">23. Detenciones.</h3>
+            <p>Una persona podrá ser detenida cuando existan indicios suficientes de su participación en un delito.
+
+El agente deberá informar al detenido del motivo de su detención tan pronto como la situación sea segura.
+La detención deberá durar únicamente el tiempo necesario para:
+Garantizar la seguridad.
+Identificar al detenido.
+Recoger pruebas.
+Realizar el interrogatorio.
+Tramitar los cargos.
+Solicitar asistencia judicial cuando corresponda.
+
+Un detenido no podrá permanecer sin atención policial durante más de 15 minutos, salvo emergencia o causa justificada.
+Queda prohibido prolongar deliberadamente una detención para perjudicar al jugador.</p>
+
+            <h3 id="art-24">24. Lectura de derechos.</h3>
+            <p>Los derechos deberán leerse antes de iniciar un interrogatorio destinado a obtener una declaración sobre los hechos. Será también obligatorio leerlos inmediatamente durante una detención, salvo que esta sea en situación de peligro.
+
+La lectura de los derechos será:
+
+“Tiene derecho a permanecer en silencio. Todo lo que diga podrá ser utilizado en su contra ante un tribunal de justicia.
+Tiene derecho a solicitar la presencia de un abogado y a contar con su asistencia durante cualquier interrogatorio.
+Si no dispone de un abogado, podrá solicitar uno de oficio conforme a los procedimientos establecidos.
+Tiene derecho a recibir atención médica si la necesita.
+Tiene derecho a conocer los motivos de su detención y los cargos que se le imputan.
+¿Ha comprendido los derechos que acabo de leerle?”
+
+En caso de que los derechos no sean correctamente comunicados o de que estos se vulneren, el detenido tendrá la posibilidad de solicitar el habeas corpus. El habeas corpus es el derecho de toda persona detenida a solicitar la revisión judicial de su detención cuando considere que esta es ilegal, carece de causa justificada o se está prolongando más allá de los límites establecidos. El juez competente deberá revisar las circunstancias de la detención y determinar si procede mantenerla o decretar la puesta en libertad del detenido. 
+
+La lectura de los derechos no deberá utilizarse como un trámite acelerado e ininteligible.</p>
+
+            <h3 id="art-25">25. Uso de esposas.</h3>
+            <p>Podrán utilizarse esposas cuando:
+
+Exista una detención.
+La persona represente un riesgo de huida.
+Exista peligro para sí misma o para terceros.
+Sea necesario asegurar temporalmente una situación.
+
+Las esposas no podrán utilizarse como castigo. Una persona esposada no deberá permanecer sin supervisión en una situación de riesgo.
+
+Los agentes deberán retirarlas cuando deje de existir la causa que justificó su uso.
+
+Queda prohibido esposar a una persona únicamente para impedirle participar en un rol sin motivo policial.</p>
+
+            <h3 id="art-26">26. Traslado de detenidos.</h3>
+            <p>Los detenidos deberán ser trasladado en vehículos oficiales adecuados. Antes del traslado deberá realizarse un registro de seguridad.
+
+Los agentes serán responsables de la integridad del detenido durante el transporte. 
+
+Los traslado de detenidos de alto riesgo podrán requerir un mínimo de 2 agentes. No podrá realizarse desvíos innecesarios con el objetivo de prolongar el rol.
+
+Cuando el detenido presente lesiones graves, deberá recibir atención médica antes de su ingreso, siempre que la situación lo permita.</p>
+
+            <h3 id="art-27">27. Interrogatorios.</h3>
+            <p>Todo interrogatorio deberá realizarse en un lugar adecuado y mediante interpretación. Antes de comenzar deberán haberse comunicado los derechos correspondientes.
+
+Queda prohibido:
+
+Forzar una confesión mediante mecánicas.
+Utilizar información OOC.
+Inventar pruebas inexistentes como si fueran reales.
+Mantener al detenido indefinidamente para obligarlo a declarar.
+
+La duración ordinaria de un interrogatorio no deberá superar los 30 minutos. En investigaciones complejas podrá ampliarse hasta 60 minutos, siempre que exista actividad de rol continuada.
+
+El detenido podrá guardar silencio sin que ello implique automáticamente una confesión. El detenido podrá solicitar la presencia de un abogado durante el interrogatorio en caso de contar con uno.</p>
+
+            <h3 id="art-28">28. Solicitud de abogado.</h3>
+            <p>Todo detenido podrá solicitar asistencia de un abogado antes del interrogatorio. Una vez solicitado, deberá concederse un máximo de 10 minutos para localizar un abogado disponible. La espera podrá ampliarse cuando exista confirmación de que un abogado se encuentra en camino.
+
+Si ningún abogado responde dentro de dicho plazo, el procedimiento podrá continuar conforme la legislación IC.
+
+El abogado podrá entrevistarse de forma privada con su cliente durante un máximo inicial de 10 minutos.
+
+El derecho a abogado no permitirá bloquear indefinidamente una actuación.</p>
+
+            <h3 id="art-29">29. Puesta a disposición judicial.</h3>
+            <p>Un detenido deberá ser puesto a disposición judicial cuando:
+
+La gravedad de los cargos lo requiera.
+Se soliciten medidas cautelares especiales.
+Exista una investigación de especial relevancia.
+Se soliciten penas superiores a las que la policía pueda tramitarlo directamente.
+La legislación IC así lo establezca.
+
+La policía deberá entregar:
+
+Informe de los hechos.
+Cargos propuestos.
+Pruebas disponibles.
+Identidad de los agentes responsables.
+
+La policía no podrá sustituir al sistema judicial en decisiones reservadas a jueces o fiscales.
+
+La ausencia de personal judicial se resolverá conforme a los procedimientos establecidos por la normativa judicial.</p>
+
+            <h2 id="cap-4">IV. USO DE LA FUERZA.</h2>
+
+            <h3 id="art-30">30. Principio de proporcionalidad.</h3>
+            <p>La fuerza utilizada deberá ser necesaria y proporcional al riesgo existente. Los agentes deberán utilizar el nivel mínimo de fuerza suficiente para controlar la situación.
+
+La escala podrá aumentar o disminuir en función de la conducta del individuo. No será obligatorio pasar por todos los niveles cuando exista una amenaza inmediata.
+
+La fuerza nunca podrá utilizarse como castigo, venganza o represalia.</p>
+
+            <h3 id="art-31">31. Escala del uso de la fuerza.</h3>
+            <p>La escala general será:
+
+Presencia policial.
+Órdenes verbales.
+Control físico.
+Armas no letales.
+Arma de fuego preparada.
+Fuerza letal.
+
+Los agentes deberán intentar reducir el nivel de fuerza cuando la amenaza disminuya. La rendición clara de una persona obligará a cesar la fuerza innecesaria.
+
+Una persona desarmada que únicamente huya no podrá ser tratada automáticamente como una amenaza letal.</p>
+
+            <h3 id="art-32">32. Fuerza física.</h3>
+            <p>Podrá utilizarse para:
+
+Controlar a una persona que se resista.
+Evitar una agresión.
+Impedir una fuga inmediata.
+Proteger a terceros.
+
+La resistencia pasiva no justificará golpes reiterados. Una vez controlada la persona, deberá cesar la fuerza.
+
+Queda prohibido golpear a personas esposadas o incapacitadas salvo amenaza inmediata.</p>
+
+            <h3 id="art-33">33. Táser.</h3>
+            <p>El táser podrá utilizarse contra personas que:
+
+Huyan activamente de una detención legítima.
+Se resistan físicamente.
+Amenacen con armas blancas a una distancia controlable.
+Supongan un peligro inmediato no letal.
+
+Queda prohibido utilizarlo:
+
+Como castigo.
+De forma repetitiva sobre una persona incapacitada.
+Contra conductores de vehículos en movimiento, salvo peligro extremo.
+En lugares donde la caída pueda provocar una muerte claramente previsible.
+
+Como norma general, no deberá realizarse más de 2 descargas consecutivas sin reevaluar la situación.
+
+Tras el uso del táser, el agente deberá proceder al control y esposado de la persona cuando sea posible.</p>
+
+            <h3 id="art-34">34. Armas no letales.</h3>
+            <p>Se consideran armas no letales aquellas destinadas al control de personas reduciendo el riesgo de muerte.
+
+Podrán incluir:
+
+Táser.
+Escopetas menos letales.
+Material antidisturbios.
+Otros medios autorizados.
+
+Su uso deberá responder al nivel de amenaza existente. La consideración de un arma como no letal no autorizará su uso indiscriminado.
+
+Solo podrán utilizar equipamiento especializado los agentes autorizados para ello.</p>
+
+            <h3 id="art-35">35. Armas de fuego.</h3>
+            <p>Los agentes podrán desenfundar un arma de fuego cuando exista una amenaza razonable que pueda requerir fuerza letal. Apuntar un arma no autorizará automáticamente a disparar.
+
+Los agentes deberán identificar correctamente el objetivo y valorar el riesgo para terceros.
+
+Quedan prohibidos los disparos de advertencia.
+
+No podrán abrir fuego contra una persona únicamente por huir. La pérdida de contacto visual con un sospechoso armado no autorizará a disparar al recuperarlo sin reevaluar la amenaza.</p>
+
+            <h3 id="art-37">37. Disparos desde vehículos.</h3>
+            <p>Los agentes no podrán disparar desde un vehículo en movimiento salvo peligro extremo e inmediato.
+
+Queda prohibido disparar contra un vehículo únicamente para detener una huida.
+
+Podrá abrirse fuego cuando los ocupantes:
+
+Disparen contra agentes o civiles.
+Utilicen el vehículo deliberadamente como arma letal.
+Generen una amenaza inmediata de muerte.
+
+Los disparos dirigidos al vehículo deberán evitarse cuando exista un riesgo desproporcionado para terceros. Siempre que sea posible, el agente deberá detener el vehículo antes de utilizar su arma.</p>
+
+            <h3 id="art-38">38. Atención médica tras el uso de la fuerza.</h3>
+            <p>Toda persona herida durante una actuación policial deberá recibir asistencia cuando la situación sea segura. Los agentes deberán solicitar a la EMS ante lesiones graves.
+
+Cuando no exista personal médico disponible, deberán prestar primeros auxilios conforme a su formación.
+
+La detención no podrá utilizarse para impedir una atención médica necesaria.
+
+La asistencia sanitaria no eliminará los cargos ni las consecuencias derivadas de la actuación.</p>
+
+            <h2 id="cap-5">V. ACTUACIONES DE TRÁFICO.</h2>
+
+            <h3 id="art-39">39. Controles de tráfico.</h3>
+            <p>Los agentes podrán detener un vehículo cuando:
+
+Cometa una infracción.
+Coincida con una descripción.
+Existan indicios de actividad delictiva.
+Se desarrolle un control autorizado.
+
+El agente deberá situar el vehículo policial de forma segura y comunicar el motivo de la parada.
+
+Una infracción menor deberá resolverse, siempre que sea posible, sin generar una escalada innecesaria.
+
+Los controles extraordinarios deberán contar con un motivo operativo y no podrán utilizarse para registrar indiscriminadamente a todos los ciudadanos.</p>
+
+            <h3 id="art-40">40. Identificación del conductor.</h3>
+            <p>El conductor deberá identificarse cuando haya sido detenido legítimamente por una infracción o actuación policial.
+
+Los acompañantes únicamente estarán obligados a identificarse cuando exista una causa policial individualizada.
+
+El agente podrá comprobar:
+
+Identidad.
+Permiso de conducción.
+Documentación del vehículo.
+Estado administrativo del vehículo.
+
+La falta de documentación se resolverá conforme a la legislación IC vigente.</p>
+
+            <h3 id="art-41">41. Multas y sanciones.</h3>
+            <p>Las multas deberán corresponderse con infracciones realmente cometidas.
+
+Queda prohibido:
+
+Inventar cargos.
+Duplicar sanciones por el mismo hecho.
+Aumentar multas por discusiones personales.
+Utilizar la máxima sanción sin valorar las circunstancias.
+
+El agente deberá informar al ciudadano de la infracción cometida.
+
+La reiteración, el peligro degenerado y los antecedentes podrán influir cuando la legislación lo permita.
+
+Las sanciones graves deberán quedar correctamente registradas.</p>
+
+            <h3 id="art-42">42. Retirada de vehículos.</h3>
+            <p>Un vehículo podrá ser retirado:
+
+Se encuentre abandonado en una zona peligrosa.
+Obstruya gravemente la circulación.
+Haya sido utilizado en un delito y deba ser intervenido.
+Su conductor haya sido detenido y no exista alternativa razonable.
+La legislación permita su inmovilización.
+
+No deberá retirarse un vehículo únicamente para perjudicar a su propietario. Cuando sea posible, se priorizará la retirada mediante el servicio de grúa correspondiente.
+
+La incautación prolongada deberá estar justificada por la gravedad de los hechos.</p>
+
+            <h3 id="art-43">43. Persecuciones.</h3>
+            <p>Se considerará iniciada una persecución cuando un conductor desobedezca claramente una orden de detención y continúe su huida.
+
+La unidad principal será responsable de:
+
+Mantener el seguimiento.
+Comunicar la ubicación.
+Informar del vehículo.
+Valorar el nivel de riesgo.
+
+Como norma general, participarán directamente un máximo de:
+
+3 unidades terrestres en persecuciones ordinarias.
+5 unidades terrestres en persecuciones de alto riesgo.
+
+Las unidades adicionales deberán mantenerse como apoyo, control de perímetro o posibles interceptores. 
+
+La policía deberá interpretar los daños de sus vehículos en las mismas condiciones que los fugitivos. Las persecuciones se regirán también por el Reglamento de Actos Ilícitos.</p>
+
+            <h3 id="art-44">44. Maniobra PIT y pinchar ruedas.</h3>
+            <p>Definición de la maniobra PIT: La maniobra PIT (Precision Immobilization Technique) es una técnica de intervención policial utilizada durante una persecución para provocar, de forma controlada, la pérdida de estabilidad y el giro del vehículo perseguido con el objetivo de detener su huida. La maniobra consiste en que el vehículo policial establece contacto con uno de los laterales de la parte trasera del vehículo perseguido y ejerce una presión controlada que provoca su rotación y posterior detención.
+
+La maniobra PIT podrá autorizarse tras 5 minutos de persecución.
+
+Podrá utilizarse antes cuando:
+
+Exista peligro grave para terceros.
+El vehículo sea utilizado como arma.
+Se produzcan atropellos intencionados.
+Se abra fuego contra los agentes.
+
+Como norma general, la autorización corresponderá al mando de la persecución.
+
+Queda prohibido realizarla:
+
+Contra motocicletas, salvo peligro extremo.
+Cerca de precipicios.
+A velocidades claramente desproporcionadas.
+En zonas con gran concentración de civiles.
+
+Tras cada PIT deberá reevaluarse la situación antes de repetir la maniobra.
+
+Pinchar las ruedas de un vehículo perseguido estará permitido siempre y cuando este no demuestre signos de detenerse. Será obligatorio dar 3 avisos antes de comenzar a pinchar ruedas.
+
+Si el vehículo perseguido dispara o intenta pinchar las ruedas del vehículo policial, no serán necesarios los 3 avisos.</p>
+
+            <h3 id="art-45">45. Pinchos.</h3>
+            <p>Los pinchos podrán utilizarse para detener vehículos en fuga. Su colocación deberá permitir, siempre que sea posible, una posibilidad razonable de reacción.
+
+Queda prohibido colocarlos directamente debajo de un detenido.
+
+Podrán utilizarse desde el principio cuando:
+
+Se trate de un gran golpe.
+Exista uso de armas de fuego.
+Haya riesgo grave para civiles.
+El vehículo haya sido utilizado como arma.
+
+Los agentes que desplieguen pinchos deberán evitar colocarse directamente en la trayectoria del vehículo perseguido.</p>
+
+            <h3 id="art-46">46. Bloqueos.</h3>
+            <p>Los bloqueos podrán utilizarse para:
+
+Cerrar carreteras.
+Proteger zonas.
+Canalizar una persecución.
+Impedir el acceso a una situación de riesgo.
+
+Deberán ser visibles y proporcionales a la situación.
+
+Queda prohibido crear bloqueos diseñados únicamente para provocar una colisión mortal inevitable.
+
+Los vehículos policiales ocupados no deberán utilizarse como barrera frontal contra vehículos que circulen a alta velocidad, salvo peligro extremo.
+
+Los bloqueos no podrán impedir injustificadamente el acceso de EMS u otros servicios de emergencia.</p>
+
+            <h3 id="art-47">47. Helicópteros.</h3>
+            <p>El apoyo aéreo podrá realizarse en:
+
+Persecuciones prolongadas.
+Atracos medianos.
+Grandes golpes.
+Secuestros de alto riesgo.
+Búsqueda de fugitivos.
+Operativos conjuntos.
+
+El helicóptero tendrá funciones de:
+
+Seguimiento.
+Localización.
+Coordinación.
+Vigilancia.
+Apoyo informativo.
+
+La aeronave no contará dentro del límite ordinario de unidades terrestres. Mientras exista contacto visual aéreo efectivo, no se considerará perdida la persecución.
+
+El helicóptero deberá retirarse cuando:
+
+Las condiciones impidan operar con seguridad.
+Sufra daños graves.
+Carezca de combustible suficiente.
+El riesgo de continuar sea desproporcionado.
+
+Solo los miembros autorizados de la unidad correspondiente podrán pilotar aeronaves policiales.</p>
+
+            <h2 id="cap-6">VI. ACTOS ILÍCITOS Y SITUACIONES DE RIESGO.</h2>
+
+            <h3 id="art-48">48. Repuesta a atracos.</h3>
+            <p>La respuesta policial deberá adaptarse al tipo de atraco, número de criminales, armamento visible, presencia de rehenes y riesgo para terceros.
+
+Como norma general, la primera unidad deberá:
+
+Confirmar la ubicación y naturaleza del atraco.
+Establecer un perímetro inicial.
+Comunicar el número aproximado de sospechosos.
+Identificar la presencia de rehenes.
+Evitar una intervención precipitada.
+
+Se designará un Mando Operativo cuando participen 4 o más unidades policiales.
+
+Los agentes no podrán iniciar una entrada táctica mientras exista una negociación activa y los rehenes no se encuentren en peligro inmediato.
+
+El número de unidades participantes deberá ser proporcional al acto ilícito. Las unidades excedentes permanecerán como:
+
+Perímetro.
+Interceptores.
+Control de tráfico.
+Reserva.
+Apoyo médico o logístico.
+
+La policía no podrá utilizar la totalidad de sus efectivos disponibles en un único atraco cuando ellos deje al resto de la ciudad sin capacidad razonable de respuesta.
+
+Finalizado el atraco, las unidades deberán mantener la actuación hasta la detención, huida o pérdida definitiva de los sospechosos.</p>
+
+            <h3 id="art-49">49. Negociaciones con rehenes.</h3>
+            <p>Cuando existan rehenes se designará, siempre que sea posible, un único negociador policial.
+
+Durante la negociación, el resto de agentes no deberán interferir directamente con los criminales salvo autorización del negociador o del Mando Operativo.
+
+El negociador deberá:
+
+Confirmar el número y estado de los rehenes.
+Conocer las exigencias.
+Mantener una comunicación activa.
+Informar al Mando Operativo.
+Buscar una resolución que priorice la vida de los rehenes.
+
+La policía podrá aceptar, rechazar o modificar las exigencias conforme al Reglamento de Actos Ilícitos.
+
+Queda prohibido aceptar deliberadamente un acuerdo con la única intención de incumplir inmediatamente después.
+
+Una negociación podrá considerarse rota cuando:
+
+Se ejecute o hiera deliberadamente a un rehén.
+Los criminales abran fuego.
+Se descubran rehenes ficticios.
+Exista un peligro inmediato e inevitable.
+Una de las partes declare expresamente finalizada la negociación.
+
+La ruptura de las negociaciones no autorizará automáticamente una entrada táctica. El Mando Operativo deberá valorar el riesgo antes de ordenar cualquier intervención.</p>
+
+            <h3 id="art-50">50. Secuestros.</h3>
+            <p>Ante un secuestro, la prioridad será:
+
+Localizar al rehén.
+Confirmar su estado.
+Identificar a los secuestradores.
+Establecer comunicación.
+Garantizar la supervivencia del rehén.
+Detener a los responsables cuando resulte posible.
+
+La policía no deberá realizar una intervención directa únicamente para evitar el pago de un rescate cuando ello suponga un riesgo desproporcionado para el rehén.
+
+Podrán emplearse:
+
+Negociaciones.
+Vigilancias.
+Seguimientos.
+Unidades no identificadas.
+Unidad aérea.
+Unidades tácticas.
+
+La policía podrá investigar el origen del rescate y realizar seguimiento posteriores siempre que la información se obtenga correctamente mediante rol. El pago de un rescate no impedirá una investigación posterior.
+
+Cuando el secuestrado sea un agente, miembro de la EMS o autoridad judicial, no se utilizará información obtenida exclusivamente por conocimiento OOC de su posición.</p>
+
+            <h3 id="art-51">51. Puntos calientes.</h3>
+            <p>La policía podrá intervenir en puntos calientes cuando obtenga conocimiento de su actividad mediante:
+
+Investigaciones.
+Vigilancia.
+Seguimiento.
+Informantes.
+Denuncias.
+Observación directa.
+Detenciones relacionadas.
+Pruebas obtenidas legalmente.
+
+Queda prohibido acudir sistemáticamente a ubicaciones conocidas OOC sin existir información IC que justifique la intervención.
+
+Una patrulla no deberá permanecer vigilando de forma permanente a puntos calientes con el único objetivo de detener a todos los jugadores que acudan.
+
+Para realizar una operación planificada en un punto caliente deberán participar, como norma general, un mínimo de 4 agentes.
+
+La presencia en un punto caliente podrá generar sospecha, pero no constituirá por sí sola prueba suficiente de un delito.
+
+Los agentes deberán valorar el número de personas presentes y el riesgo antes de intervenir. Cuando exista una clara inferioridad numérica o armada, deberán solicitar apoyo.</p>
+
+            <h3 id="art-52">52. Conflictos entre organizaciones.</h3>
+            <p>La `policía podrá intervenir en conflictos entre organizaciones cuando:
+
+Exista riesgo para civiles.
+Se utilicen armas de fuego.
+Los hechos ocurran en lugares públicos.
+Se solicite presencia policial.
+Exista una investigación activa.
+
+Los agentes no deberán actuar como mediadores privados de conflictos criminales salvo que exista una finalidad policial o judicial. 
+
+Cuando exista un enfrentamiento armado activo, la prioridad será:
+
+Proteger a los civiles.
+Contener la zona.
+Detener la amenaza inmediata.
+Atender a los heridos.
+Identificar a los implicados.
+Recoger pruebas.
+
+Todos los participantes deberán ser tratados inicialmente conforme a sus acciones observadas, sin favorecer a una organización concreta.
+
+Un conflicto entre organizaciones podrá dar lugar a una investigación conjunta de LSPD, BCSO y Departamento Judicial.</p>
+
+            <h3 id="art-53">53. Grandes golpes.</h3>
+            <p>Los grandes golpes requerirán un Mando Operativo desde el inicio de la respuesta.
+
+Siempre que haya efectivos disponibles, deberán asignase funciones diferenciadas:
+
+Negociación.
+Perímetro interior.
+Perímetro exterior.
+Unidades de persecución.
+Interceptores.
+Unidad aérea.
+Unidad táctica.
+
+Las unidades no deberán concentrarse innecesariamente frente al lugar del golpe.
+
+La policía podrá preparar interceptores y bloqueos fuera de la vista de los criminales, siempre que no incumpla los acuerdos alcanzados durante la negociación.
+
+Una entrada táctica requerirá:
+
+Orden del Mando Operativo.
+Riesgo inmediato para los rehenes
+Ruptura de las negociaciones
+Una oportunidad táctica suficientemente justificada.
+
+Tras un golpe deberá elaborarse un informe cuando existan:
+
+ Detenidos.
+Agentes o civiles gravemente heridos.
+Uso de fuerza letal.
+Material de especial relevancia incautado.</p>
+
+            <h3 id="art-54">54. Tiradores activos.</h3>
+            <p>Se considerará tirador activo a toda persona que esté utilizando un arma de fuego de forma inmediata y continuada contra civiles, agentes u otras personas.
+
+La prioridad será detener la amenaza y proteger las vidas presentes.
+
+Los agentes no estarán obligados a esperar a una nulidad especializada cuando exista una amenaza letal activa.
+
+Las primeras unidades deberán:
+
+Localizar la amenaza.
+Comunicar su posición.
+Evacuar civiles cuando sea posible.
+Intervenir para detener el peligro.
+
+Una vez finalizada la amenaza, deberá:
+
+Asegurarse el arma.
+Prestarse asistencia a los heridos.
+Acordonarse la zona.
+Preservarse las pruebas.
+
+La huida de un sospechoso armado no permitirá mantener indefinidamente la consideración de tirador activo. La amenaza deberá reevaluarse.</p>
+
+            <h3 id="art-55">55. Situaciones de crisis.</h3>
+            <p>Se considerarán situaciones de crisis aquellos incidente extraordinarios que puedan afectar gravemente a la seguridad pública.
+
+Múltiples rehenes.
+Ataques coordinados.
+Amenazas contra infraestructuras.
+Disturbios graves.
+Situaciones con múltiples tiradores.
+Emergencias de gran magnitud.
+
+Se establecerá un Mando Único de Crisis.
+
+Cuando participen LSPD y BCSO, se aplicarán las normas de mando conjunto establecidas en este reglamento.
+
+El Mando de Crisis podrá:
+
+Establecer perímetros.
+Evacuar zonas.
+Restringir temporalmente accesos.
+Solicitar unidades especializadas.
+Coordinarse con EMS y Judicial.
+
+Las medidas extraordinarias finalizarán cuando desaparezca la causa que las justificó.</p>
+
+            <h2 id="cap-7">VII. INVESTIGACIONES.</h2>
+
+            <h3 id="art-56">56. Inicio de una investigación.</h3>
+            <p>Una investigación podrá iniciarse cuando existan indicios razonables de una actividad delictiva.
+
+Podrá constituir indicios:
+
+Denuncias.
+Detenciones relacionadas.
+Pruebas materiales.
+Testimonios.
+Vigilancias.
+Información de confidentes.
+Patrones delictivos.
+
+Toda investigación relevante deberá tener un agente responsable. Queda prohibido iniciar investigaciones por motivos personales o utilizando información OOC.
+
+Las investigaciones contra organizaciones oficiales deberán documentarse desde sus primeras actuaciones relevantes.</p>
+
+            <h3 id="art-57">57. Expedientes policiales.</h3>
+            <p>Toda investigación compleja deberá contar con un expediente.
+
+El expediente deberá incluir, cuando proceda:
+
+Personas investigadas.
+Motivo de apertura.
+Cronología.
+Pruebas.
+Informes.
+Vehículos y propiedades relaciones.
+Órdenes judiciales.
+Agentes participantes.
+
+Solo podrá acceder al expediente el personal autorizado.
+
+Queda prohibido modificar o eliminar información para favorecer o perjudicar a un investigado.
+
+La consulta injustificada de expedientes podrá ser investigada por Asuntos Internos.</p>
+
+            <h3 id="art-58">58. Vigilancias.</h3>
+            <p>La vigilancia consistirá en observar una persona, vehículo o ubicación para obtener información relevante.
+
+Toda vigilancia deberá tener un motivo policial.
+
+Una vigilancia planificada de una propiedad privada no deberá mantenerse durante más de 60 minutos continuados sin nuevos indicios o autorización del responsable de la investigación.
+
+Los agentes deberán evitar ser detectados mediante una actuación coherente, sin aprovechar mecánicas o posiciones imposibles.
+
+La vigilancia no autorizará por sí sola la entrada o registro de una propiedad.</p>
+
+            <h3 id="art-59">59. Seguimientos.</h3>
+            <p>Los seguimientos podrán realizarse sobre personas o vehículos relacionados con una investigación.
+
+Como norma general, participarán un máximo de 3 vehículos policiales no identificados en un seguimiento discreto.
+
+Los vehículos deberán alternarse de forma coherente para reducir el riesgo de ser descubiertos.
+
+Si el investigado detecta el seguimiento y comienza una huida, la situación podrá convertirse en una persecución.
+
+Perder al objetivo no autorizará a localizarlo mediante información OOC.</p>
+
+            <h3 id="art-61">61. Agentes encubiertos.</h3>
+            <p>Toda operación encubierta deberá ser autorizada por la jefatura de investigación. Cuando implique infiltración prolongada en una organización oficial, requerirá además aprobación administrativa.
+
+El agente encubierto podrá:
+
+Utilizar una identidad ficticia autorizada.
+Relacionarse con los investigados.
+Participar en reuniones.
+Presenciar actividades delictivas.
+Realizar actuaciones menores necesarias para mantener su cobertura, dentro de los límites autorizados.
+
+Queda prohibido:
+
+Provocar artificialmente delitos que no iban a cometerse.
+Cometer asesinatos injustificados.
+Entregar material policial.
+Utilizar información OOC.
+Actuar sin supervisión durante una operación prolongada.
+
+La identidad encubierta deberá mantenerse separada de la información pública del agente.</p>
+
+            <h3 id="art-62">62. Intervenciones de comunicaciones.</h3>
+            <p>La intervención de comunicaciones privadas requerirá una orden judicial, salvo canales que sea públicamente accesibles.
+
+La solicitud deberá indicar:
+
+Persona u organización investigada.
+Delitos investigados.
+Indicios existentes.
+Duración solicitada.
+
+La autorización tendrá una duración máxima inicial de 7 días, pudiendo renovarse mediante nueva justificación.
+
+La información obtenida fuera del periodo autorizado no podrá utilizarse como prueba de la intervención.
+
+Queda prohibido utilizar herramientas OOC, Discord u otros medios externos como fuente de información IC.</p>
+
+            <h3 id="art-63">63. Pruebas.</h3>
+            <p>Podrán considerarse pruebas:
+
+Objetos incautados.
+Fotografías.
+Grabaciones IC.
+Huellas u otros sistemas disponibles.
+Testimonios.
+Informes policiales.
+Documentos.
+Registros autorizados.
+
+Toda prueba deberá obtenerse mediante medios válidos dentro del rol.
+
+Queda prohibido:
+
+Fabricar pruebas.
+Alterarlas.
+Ocultar pruebas relevantes.
+Utilizar información OOC.
+Presentar como comprobado algo que únicamente sea una sospecha.
+
+Una única prueba débil no deberá utilizarse para justificarse medidas extremadamente graves.</p>
+
+            <h3 id="art-64">64. Cadena de custodia.</h3>
+            <p>Toda prueba relevante deberá quedar vinculada al agente que la recoge y al expediente correspondiente.
+
+Deberá documentarse, cuando sea posible:
+
+Lugar.
+Fecha.
+Persona que la recoge.
+Actuación relacionada.
+Traslados posteriores.
+
+El acceso a pruebas estará limitado al personal autorizado.
+
+La pérdida, manipulación o desaparición injustificada de pruebas podrá ser investigada por Asuntos Internos.
+
+Los objetos utilizados como prueba no podrán emplearse para fines personales.</p>
+
+            <h3 id="art-65">65. Órdenes judiciales.</h3>
+            <p>Requerirán autorización judicial:
+
+Registros planificados de propiedades.
+Intervenciones de comunicaciones.
+Determinadas incautaciones prolongadas.
+Otras medidas invasivas previstas por la legislación.
+
+La solicitud deberá contener:
+
+Objetivo.
+Delito investigado.
+Indicios existentes.
+Lugar, persona o bien afectado.
+Medida solicitada.
+
+La orden únicamente permitirá realizar las actuaciones expresamente autorizadas.
+
+El descubrimiento causal de un delito diferente deberá documentarse y comunicarse a la autoridad correspondiente.
+
+Las órdenes tendrán la duración establecida por la autoridad judicial.</p>
+
+            <h3 id="art-66">66. Registros y redadas.</h3>
+            <p>Toda redada planificada requerirá:
+
+Orden judicial cuando proceda.
+Mando Operativo.
+Plan de entrada.
+Identificación del objetivo.
+Distribución de funciones.
+
+En una redada de riesgo participarán, como norma general, un mínimo de 6 agentes.
+
+Antes de entrar deberá valorarse:
+
+Número de personas presentes.
+Posible armamento.
+Presencia a civiles.
+Vías de acceso y huida.
+
+Solo se registrarán las zonas incluidas en la autorización, salvo emergencia o descubrimiento directo de nuevos indicios.
+
+Tras las operación deberá elaborarse un informe con detenidos, pruebas y material intervenido.</p>
+
+            <h3 id="art-67">67. Desmantelación de organizaciones.</h3>
+            <p>La desmantelación de una organización deberá ajustarse al Reglamento de Organizaciones Ilícitas.
+
+Una investigación de desmantelación deberá demostrar una actividad criminal organizada y continuada.
+
+No será suficiente:
+
+Una única detención.
+La declaración aislada de un rival.
+Una fotografía sin contexto.
+La mera relación personal con criminales.
+
+Como norma general, deberán existir al menos 3 tipos diferentes de pruebas relevantes que vinculen a la organización con actividades criminales continuadas.
+
+La policía deberá coordinar la solicitud con Fiscalía o la autoridad judicial correspondiente.
+
+La Administración solo intervendrá cuando existan reguladas específicamente por la normativa del servidor.</p>
+
+            <h2 id="cap-8">VIII. ARMAMENTO, EQUIPAMIENTO Y VEHÍCULOS.</h2>
+
+            <h3 id="art-68">68. Equipamiento reglamentario.</h3>
+            <p>Todo agente deberá portar únicamente el equipamiento correspondiente a su rango, unidad y situación.
+
+El equipamiento ordinario podrá incluir:
+
+Radio.
+Esposas.
+Linterna.
+Táser.
+Arma corta.
+Chaleco.
+Material médico básico.
+
+El material policial solo podrá utilizarse durante el servicio.
+
+Queda prohibido:
+
+Entregar equipamiento a civiles.
+Guardarlo en propiedades personales.
+Verderlo.
+Utilizarlo fuera de servicio.
+Acumular cantidades innecesarias.
+
+Las excepciones por operaciones encubiertas o corrupción autorizada se regirán por sus apartamentos específicos.</p>
+
+            <h3 id="art-69">69. Armamento de servicio.</h3>
+            <p>El arma corta reglamentaria será el armamento ordinario del agente.
+
+Como norma general, cada agente podrá portar:
+
+1 arma corta reglamentaria.
+1 táser.
+1 arma larga, únicamente cuando la situación o unidad lo autorice.
+
+Queda prohibido retirar armamento adicional con el objetivo de almacenarlo o entregarlo a terceros.
+
+Todo armamento incautado deberá depositarse conforme a los procedimiento internos. Las armas de servicio no podrá utilizarse para actividades personales fuera de servicio.</p>
+
+            <h3 id="art-70">70. Armas largas.</h3>
+            <p>Las armas largas podrán utilizarse en:
+
+Sospechosos armados.
+Atracos medianos.
+Grandes golpes.
+Secuestros de alto riesgo.
+Tiradores activos.
+Redadas de riesgo.
+Operativos tácticos.
+
+No deberán portarse de forma habitual durante actuaciones ordinarias de tráfico o patrullaje sin causa. El uso de arma larga no modifica los requisitos para emplear fuerza letal.
+
+El agente deberá devolverla al finalizar la situación que justificó su retirada, salvo que su unidad autorice su porte ordinario.
+
+El armamento especializado quedará reservado al personal autorizado.</p>
+
+            <h3 id="art-71">71. Material especializado.</h3>
+            <p>Se considerará material especializado:
+
+Escudos.
+Armas menos letales especiales.
+Equipamiento antidisturbios.
+Material de brecha.
+Equipamiento táctico.
+Dispositivos de vigilancia especializados.
+
+Solo podrá utilizarse por agente formados o bajo autorización del Mando Operativo. Queda prohibido utilizar material especializado para actuaciones ordinarias cuando no exista necesidad.
+
+Todo material deberá devolverse al finalizar el operativo.</p>
+
+            <h3 id="art-72">72. Vehículos oficiales.</h3>
+            <p>Los vehículos oficiales solo podrán utilizarse durante el servicio.
+
+Cada gente deberá utilizar vehículos acordes a:
+
+Su rango.
+Su unidad.
+El terreno.
+La actuación.
+
+Queda prohibido:
+
+Utilizarlos para fines personales.
+Prestarlos a civiles.
+Abandonarlos sin causa.
+Realizar conducción temeraria sin emergencia.
+Utilizar vehículos especializados sin autorización.
+
+Los daños graves deberán interpretarse y el vehículo deberá retirarse cuando deje de ser razonablemente operativo. Al final del servicio, los vehículos deberán guardarse correctamente.</p>
+
+            <h3 id="art-73">73. Vehículos no identificados.</h3>
+            <p>Los vehículos no identificados estarán reservados principalmente para:
+
+Investigaciones.
+Vigilancias.
+Seguimientos.
+Operaciones encubiertas.
+Funciones autorizadas de mando.
+
+No podrán utilizarse como vehículos ordinarios de patrulla sin causa.
+
+Su utilización no exime al agente de identificarse como policía cuando realice una actuación oficial, salvo que la naturaleza de la operación lo impida temporalmente.
+
+Los vehículos civiles personales no deberán utilizarse como sustitutos habituales de vehículos policiales no identificados.
+
+El uso indebido de vehículos no identificado podrá implicar la retirada temporal de la autorización.</p>
+
+            <h3 id="art-74">74. Uso del helicóptero.</h3>
+            <p>Solo podrán pilotar helicópteros policiales los agentes autorizados.
+Podrán utilizarse para:
+Persecuciones.
+Búsquedas.
+Grandes operativos.
+Vigilancias autorizadas.
+Rescates.
+Situaciones de crisis.
+Queda prohibido utilizar el helicóptero:
+Para desplazamientos personales.
+Para patrullaje sin finalidad operativa.
+Para localizar personas mediante información OOC.
+En condiciones incompatibles con una operación segura.
+Como norma general, el helicóptero deberá contar con un mínimo de 2 tripulantes cuando participe en una operación policial.
+El piloto será responsable de la seguridad de la aeronave y podrá retirarse de una operación cuando considere que continuar supone un riesgo desproporcionado.</p>
+
+            <h3 id="art-75">75. Pérdida o robo de material policial.</h3>
+            <p>La pérdida o robo de armamento, equipamiento o vehículos deberá comunicarse inmediatamente.
+El agente afectado deberá elaborar un informe cuando se pierda:
+Un arma de fuego.
+Material especializado.
+Información confidencial.
+Un vehículo oficial.
+Cualquier objeto que pueda comprometer la seguridad del cuerpo.
+Queda prohibido ocultar una pérdida para evitar consecuencias internas. La negligencia grave podrá dar lugar a medidas disciplinarias.
+La pérdida reiterada de material podrá implicar:
+Retirada temporal del acceso al equipamiento.
+Suspensión de determinadas funciones.
+Investigación de Asuntos Internos.
+Cuando existan indicios de entrega voluntaria o colaboración criminal, se iniciará una investigación interna por posible corrupción.</p>
+
+            <h2 id="cap-9">IX. SERVICIO Y CONDUCTA INTERNA.</h2>
+
+            <h3 id="art-76">76. Uniformidad.</h3>
+            <p>Todo agente deberá utilizar el uniforme correspondiente a su cuerpo, rango, unidad y función.
+Queda prohibido:
+Utilizar uniformes de rangos superiores.
+Portar distintivos de unidades a las que no se pertenezca.
+Modificar el uniforme de forma que dificulte la identificación del agente.
+Utilizar uniformes oficiales fuera de servicio.
+Combinar prendas civiles y policiales sin autorización.
+Los agentes de paisano únicamente podrán actuar como tales cuando:
+Pertenezcan a una unidad autorizada.
+Participen en una investigación.
+Realicen una vigilancia o seguimiento.
+Formen parte de una operación encubierta.
+Cuenten con autorización de un mando.
+Cuando un agente de paisano intervenga directamente en una actuación policial deberá identificarse como miembro de las Fuerzas y Cuerpos de Seguridad tan pronto como la situación lo permita.</p>
+
+            <h3 id="art-77">77. Comunicaciones por radio.</h3>
+            <p>Todo agente de servicio deberá permanecer conectado a la frecuencia policial correspondiente.
+Las comunicaciones deberán ser:
+Breves.
+Claras.
+Relevantes.
+Relacionadas con el servicio.
+Tendrán prioridad:
+Emergencias con riesgo para la vida.
+Solicitudes de apoyo urgente.
+Persecuciones.
+Actos ilícitos activos.
+Comunicaciones operativas.
+Información ordinaria.
+Queda prohibido:
+Saturar la radio.
+Mantener conversaciones personales prolongadas.
+Interrumpir comunicaciones prioritarias.
+Compartir frecuencias con personas no autorizadas.
+Utilizar información escuchada fuera del personaje correspondiente.
+Durante grandes operativos podrán establecerse frecuencias específicas.</p>
+
+            <h3 id="art-78">78. Patrullaje.</h3>
+            <p>El patrullaje deberá realizarse con una finalidad preventiva y de respuesta.
+Los agentes deberán:
+Responder a avisos.
+Mantener presencia policial.
+Atender a ciudadanos.
+Detectar infracciones.
+Prestar apoyo a otras unidades.
+Queda prohibido patrullar buscando únicamente:
+Persecuciones.
+Tiroteos.
+Puntos calientes.
+Organizaciones concretas.
+Situaciones que generen acción inmediata.
+Los agentes deberán respetar la jurisdicción principal de su cuerpo.</p>
+
+            <h3 id="art-79">79. Patrullaje en solitario.</h3>
+            <p>El patrullaje individual estará permitido cuando la estructura interna del cuerpo lo autorice.
+Un agente en solitario podrá atender:
+Infracciones de tráfico.
+Avisos ordinarios.
+Asistencia a ciudadanos.
+Actuaciones de bajo riesgo.
+Deberá solicitar apoyo antes de intervenir, siempre que sea posible, en:
+Sospechosos armados.
+Secuestros.
+Atracos.
+Grupos numerosos.
+Registros de alto riesgo.
+Situaciones de violencia activa.
+Un agente no deberá intervenir deliberadamente en clara inferioridad cuando pueda esperar apoyo sin poner vidas en peligro.
+Los agentes en formación no podrán patrullar en solitario hasta recibir la autorización correspondiente.</p>
+
+            <h3 id="art-80">80. Compañeros de patrulla.</h3>
+            <p>Cuando dos o más agentes compartan vehículo, uno será designado responsable principal de la unidad.
+Ambos agentes deberán coordinar:
+Comunicaciones.
+Navegación.
+Identificación de riesgos.
+Detenciones.
+Traslado de detenidos.
+El acompañante no deberá permanecer pasivo durante toda la patrulla.
+Los agentes serán responsables de comunicar a su compañero cualquier actuación irregular grave que observen.
+Encubrir conscientemente una infracción grave de un compañero podrá generar responsabilidad disciplinaria.</p>
+
+            <h3 id="art-81">81. Uso de instalaciones.</h3>
+            <p>Las comisarías, oficinas del Sheriff, hangares, almacenes y demás instalaciones policiales estarán destinadas exclusivamente a funciones del cuerpo.
+El acceso a zonas restringidas quedará limitado al personal autorizado.
+Queda prohibido:
+Introducir civiles sin motivo.
+Utilizar instalaciones como vivienda.
+Guardar objetos personales ilícitos.
+Facilitar accesos a terceros.
+Utilizar dependencias para actividades privadas ajenas al servicio.
+Los detenidos deberán permanecer en las zonas habilitadas.
+Toda pérdida, acceso irregular o incidente grave deberá comunicarse a un superior.</p>
+
+            <h3 id="art-82">82. Uso de bases de datos.</h3>
+            <p>Las bases de datos policiales únicamente podrán consultarse por motivos relacionados con el servicio.
+Se permitirá su uso para:
+Identificaciones.
+Investigaciones.
+Actuaciones activas.
+Comprobación de antecedentes.
+Localización de vehículos o propiedades cuando exista causa policial.
+Queda prohibido consultar información por:
+Curiosidad.
+Motivos personales.
+Petición de un amigo.
+Beneficio económico.
+Favorecimiento de terceros.
+Las consultas podrán ser revisadas por Asuntos Internos.
+Toda búsqueda reiterada o injustificada sobre una persona u organización podrá dar lugar a una investigación interna.</p>
+
+            <h3 id="art-83">83. Información confidencial.</h3>
+            <p>Se considerará confidencial toda información no pública obtenida mediante el ejercicio de funciones policiales.
+Se incluirán:
+Investigaciones activas.
+Identidad de informantes.
+Operativos futuros.
+Órdenes judiciales no ejecutadas.
+Ubicación de agentes encubiertos.
+Pruebas.
+Datos internos.
+Frecuencias y protocolos restringidos.
+La información solo podrá compartirse con personas autorizadas y cuando resulte necesaria para sus funciones.
+Queda prohibido utilizar información confidencial fuera de servicio.
+La filtración no autorizada podrá constituir una falta muy grave y, cuando exista beneficio criminal, un acto de corrupción.</p>
+
+            <h3 id="art-84">84. Relaciones con civiles.</h3>
+            <p>Los agentes podrán mantener relaciones personales, sentimentales, familiares o comerciales con civiles.
+Estas relaciones no podrán utilizarse para:
+Eliminar multas.
+Evitar detenciones.
+Consultar información.
+Facilitar permisos.
+Revelar investigaciones.
+Conceder un trato privilegiado.
+Cuando una relación comprometa la imparcialidad del agente, deberá apartarse de la actuación.
+Los agentes deberán diferenciar claramente sus relaciones personales de sus obligaciones profesionales.
+La existencia de una relación con un civil investigado deberá comunicarse cuando pueda afectar a una investigación en la que participe el agente.</p>
+
+            <h3 id="art-85">85. Relaciones con organizaciones ilícitas.</h3>
+            <p>Los agentes podrán mantener relaciones IC con miembros de organizaciones ilícitas siempre que dichas relaciones sean coherentes con la historia de sus personajes.
+Queda prohibido, salvo corrupción autorizada u operación encubierta:
+Favorecer a una organización.
+Revelar información policial.
+Alertar sobre operativos.
+Entregar material.
+Eliminar pruebas.
+Evitar detenciones.
+Participar en sus actividades criminales.
+Un agente con una relación personal directa con un miembro relevante de una organización deberá comunicar cualquier conflicto de interés cuando participe en una investigación relacionada.
+La amistad, parentesco o relación sentimental no justificará el encubrimiento de delitos.</p>
+
+            <h2 id="cap-10">X. CORRUPCIÓN POLICIAL.</h2>
+
+            <h3 id="art-86">86. Definición de agente corrupto.</h3>
+            <p>Se considerará agente corrupto aquel miembro de la LSPD o del BCSO autorizado para desarrollar una trama en la que utilice de forma ilícita su posición, información o funciones.
+
+La corrupción deberá ser una trama narrativa y no una vía para:
+
+Obtener dinero fácilmente.
+Favorecer constantemente a amigos.
+Proporcionar ventajas a una organización.
+Entregar recursos policiales.
+Sabotear el funcionamiento del cuerpo.
+
+Ningún agente podrá considerarse corrupto por decisión propia.
+
+Todo acto de corrupción realizado sin autorización podrá ser tratado como incumplimiento de normativa.</p>
+
+            <h3 id="art-87">87. Solicitud y autorización.</h3>
+            <p>Todo rol de corrupción requerirá autorización previa de la Administración.
+La solicitud deberá indicar:
+Personaje.
+Rango.
+Antigüedad.
+Motivación IC.
+Tipo de corrupción.
+Evolución prevista.
+Personas u organizaciones relacionadas.
+La autorización será individual.
+La aprobación de un agente no autorizará automáticamente a sus compañeros.
+La Administración podrá:
+Aprobar la solicitud.
+Limitar su alcance.
+Establecer condiciones.
+Suspender la trama.
+Retirar la autorización.
+La autorización deberá permanecer confidencial.</p>
+
+            <h3 id="art-88">88. Requisitos para acceder al rol.</h3>
+            <p>Para solicitar un personaje corrupto será necesario:
+Haber superado la formación básica.
+No encontrarse en periodo de prueba.
+Contar con al menos 30 días de servicio activo con el personaje.
+Mantener un historial disciplinario adecuado.
+Presentar una motivación narrativa coherente.
+
+Como norma general, no podrán desarrollar corrupción:
+Agentes en formación.
+Personajes recién incorporados.
+Jugadores con sanciones graves recientes relacionadas con abuso de facción.
+La Administración podrá exigir requisitos superiores para tramas de corrupción grave.</p>
+
+            <h3 id="art-89">89. Desarrollo progresivo de la corrupción.</h3>
+            <p>La corrupción deberá evolucionar de forma progresiva.
+Un personaje no podrá pasar directamente de agente íntegro a colaborar plenamente con una mafia sin una evolución previa.
+La progresión podrá comenzar mediante:
+Necesidades económicas.
+Presiones.
+Chantajes.
+Relaciones personales.
+Favores menores.
+Conflictos internos.
+Ambición profesional.
+Los actos deberán aumentar de gravedad conforme evolucione la trama.
+Como norma general, deberán transcurrir al menos 14 días de desarrollo entre el inicio autorizado de la corrupción y el acceso al nivel más grave.
+La Administración podrá exigir una evolución más prolongada.</p>
+
+            <h3 id="art-90">90. Niveles de corrupción.</h3>
+            <p>Se establecen tres niveles:
+
+Nivel I - Corrupción menor.
+Podría incluir:
+
+Aceptación de pequeños sobornos.
+Omisión puntual de infracciones menores.
+Favores administrativos limitados.
+Avisos de escasa relevancia.
+
+Nivel II - Corrupción grave.
+Podrá incluir:
+
+Filtraciones limitadas.
+Favorecimiento de determinados sospechosos.
+Manipulación parcial de actuaciones.
+Acceso indebido a información concreta.
+Ocultación de determinadas pruebas.
+
+Nivel III - Corrupción criminal.
+Podrá incluir:
+
+Colaboración estable con criminales.
+Manipulación grave de investigaciones.
+Filtraciones de especial relevancia.
+Participación limitada en operaciones criminales autorizadas.
+Sabotaje concreto de actuaciones.
+
+Cada agente solo podrá realizar actos correspondientes a su nivel autorizado.
+
+El ascenso de nivel requerirá autorización de la Administración.
+
+Alcanzar un nivel superior implicará asumir consecuencias IC más graves.</p>
+
+            <h3 id="art-91">91. Actos de corrupción permitidos.</h3>
+            <p>Según el nivel autorizado, podrán permitirse:
+Aceptar sobornos.
+Ignorar infracciones concretas.
+Realizar pequeños favores.
+Compartir información limitada.
+Favorecer puntualmente a una persona.
+Manipular parcialmente una actuación.
+Mantener relaciones con criminales.
+Todo acto deberá:
+Tener una finalidad narrativa.
+Respetar el nivel autorizado.
+Ser proporcional.
+Generar consecuencias y riesgos.
+La autorización para desarrollar corrupción no garantiza inmunidad frente a investigaciones IC.</p>
+
+            <h3 id="art-92">92. Actos de corrupción restringidos.</h3>
+            <p>Requerirán autorización específica, incluso para agentes corruptos:
+Manipular pruebas importantes.
+Liberar a un detenido por corrupción.
+Revelar una redada.
+Filtrar una investigación de desmantelación.
+Participar directamente en un delito grave.
+Sabotear un gran operativo.
+Revelar la identidad de un informante.
+Colaborar de forma estable con una organización.
+La autorización general de corrupción no será suficiente para realizar estos actos.
+La Administración podrá imponer condiciones concretas para cada situación.</p>
+
+            <h3 id="art-93">93. Actos de corrupción prohibidos.</h3>
+            <p>Queda prohibido en todos los niveles:
+Utilizar información OOC.
+Vaciar arsenales o almacenes policiales.
+Entregar cantidades masivas de armamento, munición o equipamiento.
+Compartir bases de datos completas.
+Filtrar sistemáticamente todos los operativos.
+Eliminar expedientes completos sin autorización.
+Sabotear constantemente a la LSPD o al BCSO.
+Utilizar la corrupción para beneficiar a personajes propios.
+Participar como un miembro criminal ordinario de una organización mientras se mantiene como agente activo.
+Utilizar permisos policiales para explotar mecánicas del servidor.</p>
+
+            <h3 id="art-94">94. Sobornos y beneficios económicos.</h3>
+            <p>Los sobornos deberán ser proporcionales al favor realizado.
+Como referencia:
+Nivel I: hasta 25.000 € por actuación.
+Nivel II: hasta 75.000 € por actuación.
+Nivel III: hasta 150.000 € por actuación.
+Las cantidades superiores requerirán autorización específica.
+Queda prohibido:
+Cobrar una cantidad fija por cada actuación policial.
+Exigir pagos OOC.
+Crear detenciones falsas para cobrar sobornos.
+Utilizar la corrupción como principal fuente de ingresos.
+Los bienes obtenidos mediante corrupción podrán ser investigados e incautados IC.</p>
+
+            <h3 id="art-95">95. Filtración de información.</h3>
+            <p>Toda filtración deberá estar limitada a información concreta.
+Según el nivel autorizado, podrá incluir:
+Nivel I: información menor y no operativa.
+Nivel II: información limitada sobre personas o actuaciones.
+Nivel III: información sensible previamente autorizada.
+Queda prohibido entregar:
+Copias completas de bases de datos.
+Listados masivos de investigados.
+Todas las frecuencias policiales.
+Identidades de agentes encubiertos sin autorización específica.
+Información obtenida OOC.
+Una filtración deberá generar un riesgo real de ser descubierta.</p>
+
+            <h3 id="art-96">96. Manipulación de pruebas.</h3>
+            <p>La manipulación de pruebas estará restringida a agentes de Nivel II o III.
+Podrá consistir, cuando esté autorizada, en:
+Omitir una prueba concreta.
+Alterar parcialmente un informe.
+Retrasar la entrega de una evidencia.
+Introducir dudas sobre la cadena de custodia.
+Requerirá autorización específica:
+Destruir una prueba decisiva.
+Introducir una prueba falsa.
+Incriminar deliberadamente a un inocente.
+Queda prohibido eliminar sistemáticamente todas las pruebas contra una persona u organización.
+Toda manipulación podrá dejar indicios para una investigación de Asuntos Internos.</p>
+
+            <h3 id="art-97">97. Liberación o favorecimiento de detenidos.</h3>
+            <p>Un agente corrupto no podrá liberar libremente a cualquier detenido.
+Podrán permitirse, según el nivel:
+Reducir injustificadamente una sanción.
+Omitir un cargo menor.
+Retrasar una actuación.
+Facilitar un trato favorable.
+La liberación deliberada de un detenido por un delito grave requerirá autorización específica.
+Queda prohibido:
+Liberar sistemáticamente a miembros de una organización.
+Fingir fugas sin desarrollo de rol.
+Eliminar todos los cargos sin justificación.
+Permitir una fuga utilizando mecánicas abusivas.</p>
+
+            <h3 id="art-98">98. Relaciones con organizaciones ilícitas.</h3>
+            <p>Un agente corrupto podrá mantener relación con personas u organizaciones criminales conforme a su trama.
+La relación podrá incluir:
+Intercambio de favores.
+Sobornos.
+Información limitada.
+Protección puntual.
+Colaboración concreta.
+Queda prohibido convertirse, en la práctica, en un miembro adicional de la organización.
+El agente no contará como miembro oficial de una banda o mafia.
+Como norma general, un agente corrupto no podrá colaborar de forma estable con más de 1 organización ilícita simultáneamente. Las alianzas deberán surgir mediante rol y no mediante acuerdos OOC.</p>
+
+            <h3 id="art-99">99. Venta o entrega de material policial.</h3>
+            <p>La venta o entrega de material policial estará severamente restringida.
+Podrán entregarse únicamente, con autorización:
+Cantidades muy limitadas de material no crítico.
+Objetos concretos necesarios para una trama.
+Requerirá autorización específica cualquier entrega de:
+Armas de fuego.
+Munición.
+Chalecos policiales.
+Equipamiento táctico.
+Material de vigilancia.
+Queda prohibido entregar:
+Vehículos policiales de forma permanente.
+Armamento pesado.
+Grandes cantidades de munición.
+Equipamiento completo de unidades especializadas.
+Material obtenido vaciando almacenes.
+La pérdida intencionada de material para simular un robo será considerada una entrega.</p>
+
+            <h3 id="art-100">100. Uso indebido de bases de datos.</h3>
+            <p>Los agentes corruptos de Nivel II o III podrán realizar consultas indebidas limitadas cuando formen parte de su trama.
+Cada consulta deberá estar relacionada con un objetivo concreto.
+Queda prohibido:
+Descargar bases de datos completas.
+Consultar masivamente miembros de una organización.
+Entregar historiales completos sin autorización.
+Buscar información para personajes propios.
+Utilizar datos obtenidos por otro personaje.</p>
+
+            <h3 id="art-101">101. Corrupción durante investigaciones.</h3>
+            <p>Un agente corrupto podrá participar en una investigación relacionada con sus contactos criminales únicamente cuando resulte coherente con la trama.
+Deberá asumir el riesgo de:
+Ser descubierto.
+Dejar inconsistencias.
+Generar sospechas.
+Ser investigado internamente.
+Queda prohibido controlar deliberadamente todas las investigaciones relacionadas con una organización para garantizar su impunidad.
+Los actos graves de sabotaje requerirán autorización específica.
+Una investigación no podrá ser destruida por completo únicamente por la actuación de un agente corrupto.</p>
+
+            <h3 id="art-102">102. Límites de actuación.</h3>
+            <p>La corrupción deberá mantenerse dentro del alcance aprobado.
+Como norma general:
+Un agente no podrá realizar más de 2 actos graves de corrupción por semana.
+No podrá entregar material policial de forma habitual.
+No podrá filtrar todos los operativos de una organización.
+No podrá impedir constantemente detenciones o investigaciones.
+Los actos menores derivados de una trama continuada no estarán sujetos necesariamente a dicho límite.
+La Administración podrá establecer límites individuales diferentes.
+El incumplimiento de los límites podrá provocar la retirada inmediata de la autorización.</p>
+
+            <h3 id="art-103">103. Investigación interna.</h3>
+            <p>Los agentes corruptos podrán ser investigados por Asuntos Internos cuando existan indicios IC.
+Podrán considerarse indicios:
+Consultas injustificadas.
+Patrimonio incompatible.
+Pérdida reiterada de material.
+Filtraciones.
+Informes contradictorios.
+Relaciones sospechosas.
+Testimonios.
+Manipulación de pruebas.
+La existencia de una autorización OOC no podrá utilizarse para impedir la investigación. Asuntos Internos deberá obtener las pruebas mediante rol.
+La Administración no revelará la existencia de un agente corrupto a los investigadores.</p>
+
+            <h3 id="art-104">104. Descubrimiento del agente corrupto.</h3>
+            <p>Se considerará descubierto cuando exista una investigación IC suficiente para demostrar su actividad.
+El descubrimiento podrá provocar:
+Detención.
+Suspensión.
+Registro de propiedades.
+Congelación de bienes.
+Interrogatorio.
+Procedimiento judicial.
+La Administración no protegerá al personaje de las consecuencias naturales de la trama.
+El agente deberá aceptar que el riesgo de ser descubierto forma parte esencial del rol de corrupción.</p>
+
+            <h3 id="art-105">105. Consecuencias IC.</h3>
+            <p>Un agente declarado culpable de corrupción podrá enfrentarse a:
+Expulsión del cuerpo.
+Pérdida de rango.
+Pérdida de licencias.
+Multas.
+Prisión.
+Incautación de bienes obtenidos ilícitamente.
+Inhabilitación para cargos públicos.
+La gravedad dependerá de:
+Nivel de corrupción.
+Duración.
+Beneficio obtenido.
+Información filtrada.
+Daño causado.
+Colaboración con organizaciones criminales.
+La expulsión por corrupción grave podrá impedir al personaje volver a formar parte de la LSPD o el BCSO.
+Las consecuencias administrativas únicamente se aplicarán cuando también exista un incumplimiento OOC.</p>
+
+            <h3 id="art-106">106. CK por corrupción.</h3>
+            <p>Ser descubierto como agente corrupto no supondrá automáticamente un CK.
+Podrá plantearse un CK cuando:
+La corrupción haya alcanzado el Nivel III.
+Exista una trama prolongada de especial gravedad.
+El personaje haya causado daños extremos al cuerpo o al Estado.
+Exista una resolución judicial que lo justifique.
+El desenlace haya sido previamente autorizado por la Administración.
+
+El CK podrá ser:
+Judicial.
+Pactado.
+Voluntario.
+Derivado de una trama autorizada.
+Ningún jugador podrá imponer unilateralmente el CK de un agente corrupto.
+Cuando un jugador solicite o acepte una trama de corrupción de Nivel III, deberá asumir desde el inicio que el desenlace podrá implicar la pérdida permanente del personaje si la evolución del rol lo justifica.</p>
+
+            <h2 id="cap-11">XI. RÉGIMEN DISCIPLINARIO.</h2>
+
+            <h3 id="art-107">107. Faltas leves.</h3>
+            <p>Se considerarán faltas leves aquellas conductas que incumplan las normas internas sin causar un perjuicio grave al servicio, a otros jugadores o al funcionamiento del cuerpo.
+Podrán considerarse faltas leves:
+Uso incorrecto del uniforme.
+Retrasos reiterados en comunicaciones o formaciones.
+Uso inadecuado de la radio.
+No cumplimentar informes de carácter menor.
+Descuidar el vehículo o equipamiento asignado.
+Incumplir instrucciones internas de escasa gravedad.
+Abandonar temporalmente una función sin informar.
+Utilizar un vehículo no correspondiente al rango o unidad sin autorización.
+Mantener una conducta poco profesional de carácter puntual.
+No respetar correctamente la cadena de mando en situaciones menores.
+
+Las faltas leves podrán sancionarse con:
+Advertencia verbal.
+Advertencia escrita.
+Formación adicional.
+Retirada temporal de determinadas funciones.
+La acumulación de 3 faltas leves en un periodo de 60 días podrá ser tratada como una falta grave.</p>
+
+            <h3 id="art-108">108. Faltas graves.</h3>
+            <p>Se considerarán faltas graves aquellas conductas que afecten de forma significativa al funcionamiento del cuerpo, a una actuación policial o a los derechos de un ciudadano.
+Podrán considerarse faltas graves:
+Desobedecer una orden legítima de un superior.
+Abandonar una actuación activa sin causa justificada.
+Utilizar fuerza desproporcionada.
+Realizar registros o detenciones sin causa suficiente.
+Incumplir gravemente la cadena de mando.
+Utilizar armamento o material especializado sin autorización.
+Consultar bases de datos sin motivo policial.
+Revelar información interna no crítica.
+Perder material policial por negligencia.
+Ignorar deliberadamente emergencias prioritarias.
+Favorecer a un civil por amistad o relación personal.
+Interferir en una investigación sin autorización.
+Ocultar una infracción grave cometida por otro agente.
+Acumular faltas leves de forma reiterada.
+Las faltas graves podrán sancionarse con:
+Advertencia escrita.
+Suspensión temporal.
+Retirada de permisos.
+Expulsión de una unidad especializada.
+Descenso de rango.
+La acumulación de 2 faltas graves en un periodo de 90 días podrá ser tratada como una falta muy grave.</p>
+
+            <h3 id="art-109">109. Faltas muy graves.</h3>
+            <p>Se considerarán faltas muy graves aquellas conductas que comprometan seriamente la seguridad, integridad o funcionamiento de la LSPD, el BCSO o el conjunto del servidor.
+Podrán considerarse faltas muy graves:
+Abuso deliberado y reiterado de autoridad.
+Uso injustificado de fuerza letal.
+Tortura o maltrato grave de detenidos.
+Fabricación de pruebas.
+Falsificación deliberada de informes.
+Revelación de información altamente confidencial.
+Identificación intencionada de agentes encubiertos.
+Entrega no autorizada de armamento o material policial.
+Colaboración criminal sin autorización de corrupción.
+Manipulación grave de investigaciones.
+Liberación deliberada de detenidos por beneficio personal.
+Sabotaje de operativos.
+Uso de información OOC en funciones policiales.
+Acceso masivo o filtración de bases de datos.
+Apropiación de dinero, pruebas o material incautado.
+Encubrimiento consciente de una falta muy grave.
+Reincidencia continuada en faltas graves.
+Las faltas muy graves podrán sancionarse con:
+Suspensión inmediata.
+Descenso de uno o varios rangos.
+Pérdida de unidades y permisos.
+Expulsión del cuerpo.
+Inhabilitación para volver a ingresar.
+Investigación administrativa cuando exista también un incumplimiento OOC.
+Cuando los hechos puedan constituir un delito IC, el procedimiento disciplinario podrá desarrollarse de forma paralela al procedimiento penal o judicial.</p>
+
+            <h3 id="art-110">110. Advertencias.</h3>
+            <p>Las advertencias podrán ser verbales o escritas.
+Las advertencias verbales se utilizarán para corregir errores menores y no reincidentes.
+Las advertencias escritas deberán quedar registradas e incluir:
+Agente sancionado.
+Hechos.
+Fecha.
+Norma incumplida.
+Medida aplicada.
+Responsable de la sanción.
+Las advertencias tendrán una vigencia disciplinaria ordinaria de 90 días.
+Una advertencia caducada podrá permanecer en el historial interno del agente, pero no deberá utilizarse por sí sola para agravar automáticamente una nueva sanción.
+El agente podrá presentar alegaciones ante el órgano interno correspondiente dentro de las 48 horas siguientes a la comunicación de una sanción escrita.</p>
+
+            <h3 id="art-111">111. Suspensión de empleo.</h3>
+            <p>La suspensión implicará la retirada temporal del derecho a ejercer funciones policiales. Durante la suspensión, el agente no podrá:
+Entrar de servicio.
+Utilizar instalaciones restringidas.
+Acceder a bases de datos.
+Portar material policial.
+Participar en operativos.
+Consultar información interna.
+La duración ordinaria podrá ser:
+1 a 3 días por infracciones graves.
+3 a 7 días por infracciones graves reiteradas.
+7 a 30 días por infracciones muy graves.
+En casos de especial gravedad, podrá aplicarse una suspensión cautelar mientras se desarrolla una investigación interna.
+La suspensión cautelar no implicará automáticamente la culpabilidad del agente.
+Finalizada la suspensión, podrá exigirse:
+Entrevista con jefatura.
+Formación adicional.
+Evaluación.
+Periodo temporal de supervisión.</p>
+
+            <h3 id="art-112">112. Descenso de rango.</h3>
+            <p>El descenso de rango podrá aplicarse cuando el agente demuestre:
+Falta de capacidad para las responsabilidades asumidas.
+Abuso de autoridad.
+Incumplimiento grave de sus funciones.
+Reincidencia disciplinaria.
+Mala gestión de personal bajo su mando.
+El descenso podrá ser de 1 o varios rangos, según la gravedad de los hechos.
+Podrá implicar además:
+Pérdida de mando.
+Expulsión de unidades especializadas.
+Retirada de permisos.
+Periodo de supervisión.
+Como norma general, un agente descendido por sanción no podrá recuperar el rango perdido durante los siguientes 30 días.
+En casos graves, la sanción podrá establecer un periodo superior o impedir permanentemente el acceso a determinados puestos.
+El ascenso posterior deberá producirse nuevamente por méritos y no de forma automática al finalizar la sanción.</p>
+
+            <h3 id="art-113">113. Expulsión del cuerpo.</h3>
+            <p>La expulsión será la sanción disciplinaria interna más grave.
+Podrá aplicarse cuando:
+Exista una falta muy grave.
+Se acumulen infracciones graves de forma continuada.
+El agente represente un riesgo para el funcionamiento del cuerpo.
+Exista corrupción no autorizada.
+Se produzca una pérdida total de confianza justificada.
+El agente incumpla deliberadamente las obligaciones esenciales de su cargo.
+La expulsión podrá ser:
+Ordinaria: permitirá una futura solicitud de reingreso.
+Con inhabilitación temporal: impedirá el reingreso durante un periodo determinado.
+Con inhabilitación permanente: impedirá volver a formar parte de la LSPD o el BCSO con ese personaje.
+Como norma general:
+La inhabilitación temporal será de entre 30 y 90 días.
+La inhabilitación permanente se reservará para casos de especial gravedad.
+La expulsión no eliminará:
+Procedimientos judiciales.
+Investigaciones.
+Deudas.
+Cargos penales.
+Consecuencias derivadas de corrupción.
+La expulsión del cuerpo no supondrá automáticamente un CK del personaje.
+
+113. Expulsión del cuerpo.
+La expulsión será la sanción disciplinaria interna más grave.
+Podrá aplicarse cuando:
+Exista una falta muy grave.
+Se acumulen infracciones graves de forma continuada.
+El agente represente un riesgo para el funcionamiento del cuerpo.
+Exista corrupción no autorizada.
+Se produzca una pérdida total de confianza justificada.
+El agente incumpla deliberadamente las obligaciones esenciales de su cargo.
+La expulsión podrá ser:
+Ordinaria: permitirá una futura solicitud de reingreso.
+Con inhabilitación temporal: impedirá el reingreso durante un periodo determinado.
+Con inhabilitación permanente: impedirá volver a formar parte de la LSPD o el BCSO con ese personaje.
+Como norma general:
+La inhabilitación temporal será de entre 30 y 90 días.
+La inhabilitación permanente se reservará para casos de especial gravedad.
+La expulsión no eliminará:
+Procedimientos judiciales.
+Investigaciones.
+Deudas.
+Cargos penales.
+Consecuencias derivadas de corrupción.
+La expulsión del cuerpo no supondrá automáticamente un CK del personaje.</p>
+
+            <h3 id="art-114">114. Responsabilidad del mando.</h3>
+            <p>Los mandos serán responsables de sus propias actuaciones y de la correcta supervisión de los agentes bajo su autoridad.
+Un mando podrá ser investigado cuando:
+Ignore de forma reiterada infracciones conocidas.
+Encubra a miembros del cuerpo.
+Ordene actuaciones ilegales.
+Utilice su posición para evitar investigaciones.
+Aplique sanciones por motivos personales.
+Favorezca injustificadamente a determinados agentes.
+No actúe ante conductas graves de las que tenga conocimiento.
+Un mando no será automáticamente responsable de todas las infracciones cometidas por sus subordinados.
+Para existir responsabilidad deberá demostrarse:
+Conocimiento previo.
+Participación.
+Encubrimiento.
+Negligencia grave.
+Falta deliberada de supervisión.
+Los mandos deberán comunicar a Asuntos Internos cualquier posible falta muy grave de la que tengan conocimiento.
+Queda prohibido utilizar la cadena de mando para impedir o dificultar una investigación interna legítima.
+Los miembros de jefatura estarán sujetos a las mismas normas disciplinarias que el resto del cuerpo.
+Las sanciones contra miembros de jefatura deberán ser revisadas por la autoridad interna o administrativa competente para evitar conflictos de interés.</p>
+
+            <h2 id="cap-12">XII. DISPOSICIONES FINALES.</h2>
+
+            <h3 id="art-115">115. Interpretación.</h3>
+            <p>La Administración será la encargada de interpretar el presente reglamento en aquellas situaciones no contempladas expresamente.
+Las jefaturas de la LSPD y el BCSO podrán desarrollar protocolos internos siempre que no contradigan:
+La Normativa General.
+El Reglamento de Actos Ilícitos.
+El Reglamento de Organizaciones Ilícitas.
+La normativa judicial.
+El presente reglamento.
+La existencia de un vacío normativo no autorizará actuaciones contrarias a:
+La coherencia del rol.
+El Valor de la Vida.
+La proporcionalidad.
+La finalidad de las Fuerzas y Cuerpos de Seguridad.
+Ante situaciones equivalentes deberán aplicarse criterios similares, evitando diferencias injustificadas entre agentes, rangos o cuerpos.
+En caso de contradicción entre un protocolo interno y una normativa oficial de Legacy RP, prevalecerá siempre la normativa oficial del servidor.</p>
+
+            <h3 id="art-116">116. Interpretación.</h3>
+            <p>La Administración podrá modificar, ampliar o actualizar este reglamento cuando resulte necesario.
+Las modificaciones podrán responder a:
+Nuevas mecánicas.
+Cambios en la estructura de los cuerpos.
+Creación o eliminación de unidades.
+Modificaciones en la legislación IC.
+Necesidades de equilibrio.
+Problemas detectados durante el desarrollo del rol.
+Las jefaturas podrán proponer modificaciones, pero no alterar unilateralmente las normas generales establecidas en este reglamento.
+Los protocolos internos podrán modificarse por las jefaturas siempre que permanezcan dentro de los límites de la normativa oficial.
+Toda modificación oficial será comunicada mediante los canales correspondientes.
+Las nuevas normas serán de obligado cumplimiento desde la fecha indicada en su publicación.</p>
+
+            <h3 id="art-117">117. Aceptación.</h3>
+            <p>El ingreso en la LSPD o el BCSO implicará la aceptación íntegra del presente reglamento.
+Todo miembro será responsable de conocer:
+Esta normativa.
+La Normativa General.
+La legislación IC vigente.
+Los protocolos correspondientes a su cuerpo y unidad.
+El desconocimiento de una norma no eximirá de su cumplimiento ni de las consecuencias derivadas de su infracción.
+Los agentes deberán comprender que su pertenencia a una facción policial implica una responsabilidad superior debido a las herramientas, información y autoridad que reciben.
+Ningún rango, cargo, unidad o antigüedad situará a un miembro por encima de la normativa.
+La finalidad de la LSPD y el BCSO será generar un rol policial serio, coherente y equilibrado, protegiendo el desarrollo de las historias de todas las partes y evitando que la autoridad policial se utilice como una herramienta para buscar únicamente la victoria.</p>
+
+            <h2 id="anexo-1">- EXTRA: ANEXO 1.</h2>
+
+            <h3 id="art-118">118. Rangos LSPD.</h3>
+            <p>Escala Básica.
+Cadete.
+Oficial.
+Oficial Senior.
+Escala de Supervisión.
+Sargento.
+Escala de Mando.
+Teniente.
+Capitán.
+Alto Mando.
+Comandante.
+Subjefe de Policía.
+Sub Comisario de Policía.
+Comisario de Policía.</p>
+
+            <h3 id="art-119">119. Rangos BCSO.</h3>
+            <p>Escala Básica
+Cadete.
+Deputy Sheriff.
+Senior Deputy Sheriff.
+Escala de Supervisión
+Sargento.
+Escala de Mando
+Teniente.
+Capitán.
+Comandante.
+Alto Mando
+Chief Deputy.
+Undersheriff.
+Sheriff.</p>
+
+            <h3 id="art-120">120. Códigos de radio.</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Significado</th>
+                        <th>Código</th>
+                        <th>Significado</th>
+                        <th>Código</th>
+                        <th>Significado</th>
+                        <th>Código</th>
+                        <th>Significado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>10-00</td><td>Precaución</td><td>10-25</td><td>Traslado</td><td>254-P</td><td>Persecución a pie</td><td>C-100</td><td>Bloqueo con vehículo</td></tr>
+                    <tr><td>10-04</td><td>Afirmativo</td><td>10-37</td><td>Solicitar Grúa</td><td>C-1</td><td>Sin luces ni sonido</td><td>C-PIT</td><td>Leve toque a vehículo</td></tr>
+                    <tr><td>10-05</td><td>Negativo</td><td>10-38</td><td>Solicitar EMS</td><td>C-2</td><td>Solo luces</td><td>247</td><td>Tiroteo en la zona</td></tr>
+                    <tr><td>10-06</td><td>Parada de tráfico</td><td>10-80</td><td>Reunión en comisaría</td><td>C-3</td><td>Luces y sonido</td><td>4-15</td><td>Tiroteo a agentes</td></tr>
+                    <tr><td>10-07</td><td>Parada de servicio</td><td>10-81</td><td>Acudir a comisaría</td><td>C-4</td><td>No se precisa ayuda</td><td>4-88</td><td>Robo a establecimiento</td></tr>
+                    <tr><td>10-09</td><td>Repetir mensaje</td><td>10-90</td><td>Falsa alarma</td><td>C-5</td><td>Alejarse de la zona</td><td>Paul Henry</td><td>Persona herida</td></tr>
+                    <tr><td>10-10</td><td>Salir de servicio</td><td>10-95</td><td>Procesado de detenido</td><td>C-6</td><td>Investigar la zona</td><td>QRR</td><td>Agente en peligro</td></tr>
+                    <tr><td>10-15</td><td>Sujeto en custodia</td><td>10-97</td><td>Llegado al aviso</td><td>C-11</td><td>Dispo. Unidades</td><td>6-ADAM</td><td>Solicitar refuerzos</td></tr>
+                    <tr><td>10-20</td><td>Ubicación actual</td><td>10-98</td><td>Intervención finalizada</td><td>C-37</td><td>Robo de vehículo</td><td>Tom Charles</td><td>Accidente de tráfico</td></tr>
+                    <tr><td>10-23</td><td>A la espera</td><td>254-V</td><td>Persecución en vehículo</td><td>C-320</td><td>Venta de drogas</td><td>QRX</td><td>Silencio en radio</td></tr>
+                </tbody>
+            </table>
+
+            <h3 id="art-121">121. Vehículos.</h3>
+            <p>Los vehículos principales tanto de la LSPD y la BCSO tendrán sus nomenclaturas y sus nombres para ayudar a su identificación.
+
+LSPD
+Lincoln → Patrulla individual
+Adam → Patrulla de dos
+Mary → Moto
+Charles → Interceptor
+David → SWAT
+Pegasus → Helicóptero
+Zebra → Marítima
+Command → Alto mando
+
+BCSO
+King → Patrulla individual
+Robert → Patrulla doble
+Miles → Moto
+Havanna → Interceptor
+Wolf → K9
+Sierra → SWAT
+Aero → Helicóptero
+Zebra → Marítima
+Sheriff → Alto mando</p>
+
+        </div>
+    </main>
+
+    <script>
+        function filterNav() {
+            const input = document.getElementById('searchInput');
+            const filter = input.value.toLowerCase();
+            const ul = document.getElementById('navList');
+            const li = ul.getElementsByTagName('li');
+
+            for (let i = 0; i < li.length; i++) {
+                const a = li[i].getElementsByTagName('a')[0];
+                const txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Highlight active link on scroll
+        const sections = document.querySelectorAll("h1, h2");
+        const navLi = document.querySelectorAll("#sidebar .nav-list li a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLi.forEach((a) => {
+                a.classList.remove("active");
+                if (a.getAttribute("href").includes(current)) {
+                    a.classList.add("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
