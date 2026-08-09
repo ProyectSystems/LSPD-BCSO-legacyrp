@@ -2553,45 +2553,5 @@ Sheriff → Alto mando</p>
 
         </div>
     </main>
-
-    <script>
-        function filterNav() {
-            const input = document.getElementById('searchInput');
-            const filter = input.value.toLowerCase();
-            const ul = document.getElementById('navList');
-            const li = ul.getElementsByTagName('li');
-
-            for (let i = 0; i < li.length; i++) {
-                const a = li[i].getElementsByTagName('a')[0];
-                const txtValue = a.textContent || a.innerText;
-                if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        }
-
-        // Highlight active link on scroll
-        const sections = document.querySelectorAll("h1, h2");
-        const navLi = document.querySelectorAll("#sidebar .nav-list li a");
-
-        window.addEventListener("scroll", () => {
-            let current = "";
-            sections.forEach((section) => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute("id");
-                }
-            });
-
-            navLi.forEach((a) => {
-                a.classList.remove("active");
-                if (a.getAttribute("href").includes(current)) {
-                    a.classList.add("active");
-                }
-            });
-        });
-    </script>
 </body>
 </html>
